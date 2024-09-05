@@ -1,0 +1,25 @@
+import osc.standard
+
+scenario elk_overtaking:
+    gvt: vehicle                # Target vehicle
+    dut: vehicle                # Device under test
+    routeToFollow: route with:  # Route to be followed
+
+        keep(it.min_lanes == 2)
+
+    do parallel:
+            dut.drive(duration: 5s) with:
+                along(route: routeToFollow)                                # VUT should drive along the route routeToFollow
+                lane(side_of: gvt, side: right, at: start)                 # VUT is initially on the right lane
+                lane(same_as: gvt, at: end)                                # VUT transitions to the same lane as the target vehicle during the scenario
+                lateral(distance: 1m, measure_by: left_to_left, at: start) # VUT has an initial distance of 1m to the lane marking on its
+                                                                           # left (between the cars) of the GVT match)
+                position(distance: 10.0m, ahead_of: gvt, at: start)        # VUT is initially ahead of GVT
+                position(distance: 1m, behind_of: gvt, at: end)            # At the end, VUT and GVT overlap (s.t. the rear axle of the
+                                                                           # VUT and the front)
+
+            gvt.drive() with:
+                along(route: routeToFollow)                                    # GVT should drive along the route routeToFollow
+                speed(speed: 80kph)                                            # GVT speed is 80 kph
+                lateral(distance: 1.5m, measure_by: right_to_right, at: start) # GVT has a constant distance of 1.5m to the lane marking
+                                                                               # on its right (between the cars)

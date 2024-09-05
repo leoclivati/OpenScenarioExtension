@@ -1,0 +1,406 @@
+/*
+ * EBNF Grammar of OpenSCENARIO 2.0
+ */
+
+/* tag::grammar-osc-file[] */
+osc-file ::= prelude-statement* osc-declaration*
+/* end::grammar-osc-file[] */
+
+/* tag::grammar-prelude-statement[] */
+prelude-statement ::= import-statement
+/* end::grammar-prelude-statement[] */
+
+/* tag::grammar-import-statement[] */
+import-statement ::= 'import' import-reference NEWLINE
+import-reference ::= string-literal | structured-identifier
+
+structured-identifier ::= identifier | structured-identifier '.' identifier
+/* end::grammar-import-statement[] */
+
+/* tag::grammar-osc-declaration[] */
+osc-declaration ::=   physical-type-declaration
+                    | unit-declaration
+                    | enum-declaration
+                    | struct-declaration
+                    | actor-declaration
+                    | action-declaration
+                    | scenario-declaration
+                    | modifier-declaration
+                    | type-extension
+                    | global-parameter-declaration
+/* end::grammar-osc-declaration[] */
+
+/* tag::grammar-type-declarator[] */
+type-declarator ::= non-aggregate-type-declarator | aggregate-type-declarator
+
+non-aggregate-type-declarator ::= primitive-type | physical-type-name | enum-name | struct-name | actor-name | qualified-behavior-name
+
+aggregate-type-declarator ::= list-type-declarator
+list-type-declarator ::= 'list' 'of' non-aggregate-type-declarator
+
+primitive-type ::= 'int' | 'uint' | 'float' | 'bool' | 'string'
+/* end::grammar-type-declarator[] */
+
+/* tag::grammar-physical-type-declaration[] */
+physical-type-declaration ::= 'type' physical-type-name 'is' base-unit-specifier NEWLINE
+physical-type-name ::= identifier
+/* end::grammar-physical-type-declaration[] */
+
+/* tag::grammar-unit-declaration[] */
+unit-declaration ::= 'unit' unit-name 'of' physical-type-name 'is' unit-specifier NEWLINE
+
+base-unit-specifier ::= SI-base-unit-specifier
+unit-specifier ::= SI-unit-specifier
+
+SI-base-unit-specifier ::= 'SI' '(' SI-base-exponent-list ')'
+SI-base-exponent-list ::= SI-base-exponent (',' SI-base-exponent)*
+SI-base-exponent ::= SI-base-unit-name ':' integer-literal
+
+SI-unit-specifier ::= 'SI' '(' SI-base-exponent-list [',' SI-factor] [',' SI-offset] ')'
+SI-factor ::= 'factor' ':' ( float-literal | integer-literal )
+SI-offset ::= 'offset' ':' ( float-literal | integer-literal )
+SI-base-unit-name ::= 'kg' | 'm' | 's' | 'A' | 'K' | 'mol' | 'cd' | 'rad'
+/* end::grammar-unit-declaration[] */
+
+/* tag::grammar-enum-declaration[] */
+enum-declaration ::= 'enum' enum-name ':' '[' enum-member-decl (',' enum-member-decl)* ']' NEWLINE
+enum-member-decl ::= enum-member-name [ '=' enum-member-value ]
+enum-name ::= identifier
+enum-member-name ::= identifier
+enum-member-value ::= uint-literal | hex-uint-literal
+
+enum-value-reference ::= [enum-name '!'] enum-member-name
+/* end::grammar-enum-declaration[] */
+
+/* tag::grammar-struct-declaration[] */
+struct-declaration ::= 'struct' struct-name ['inherits' struct-name ['(' field-name '=='  (enum-value-reference | bool-literal) ')']] ( (':' NEWLINE INDENT
+      struct-member-decl+ DEDENT) | NEWLINE )
+
+struct-member-decl ::= event-declaration | field-declaration | constraint-declaration | method-declaration | coverage-declaration
+struct-name ::= identifier
+field-name ::= identifier
+/* end::grammar-struct-declaration[] */
+
+/* tag::grammar-actor-declaration[] */
+actor-declaration ::= 'actor' actor-name ['inherits' actor-name ['(' field-name '==' (enum-value-reference | bool-literal) ')']] ( (':' NEWLINE INDENT
+      actor-member-decl+ DEDENT) | NEWLINE )
+
+actor-member-decl ::= event-declaration | field-declaration | constraint-declaration | method-declaration | coverage-declaration
+actor-name ::= identifier
+/* end::grammar-actor-declaration[] */
+
+/* tag::grammar-scenario-declaration[] */
+scenario-declaration ::= 'scenario' qualified-behavior-name ['inherits' qualified-behavior-name ['(' field-name '==' (enum-value-reference | bool-literal) ')']] ( (':' NEWLINE INDENT
+      (scenario-member-decl | behavior-specification)+
+      DEDENT) | NEWLINE )
+
+scenario-member-decl ::= event-declaration | field-declaration | constraint-declaration | method-declaration | coverage-declaration | modifier-application
+
+qualified-behavior-name ::= [actor-name '.'] behavior-name
+behavior-name ::= identifier
+/* end::grammar-scenario-declaration[] */
+
+/* tag::grammar-action-declaration[] */
+action-declaration ::= 'action' qualified-behavior-name ['inherits' qualified-behavior-name ['(' field-name '==' (enum-value-reference | bool-literal) ')']] ( (':' NEWLINE INDENT
+      (scenario-member-decl | behavior-specification)+
+      DEDENT) | NEWLINE )
+/* end::grammar-action-declaration[] */
+
+/* tag::grammar-modifier-declaration[] */
+modifier-declaration ::= 'modifier' [actor-name '.'] modifier-name ['of' qualified-behavior-name] ( (':' NEWLINE INDENT
+      (scenario-member-decl | on-directive)+
+      DEDENT) | NEWLINE )
+
+modifier-name ::= identifier
+/* end::grammar-modifier-declaration[] */
+
+/* tag::grammar-global-parameter-declaration[] */
+global-parameter-declaration ::= 'global' parameter-declaration
+/* end::grammar-global-parameter-declaration[] */
+
+/* tag::grammar-type-extension[] */
+type-extension ::= enum-type-extension | structured-type-extension
+
+enum-type-extension ::= 'extend' enum-name ':' '[' enum-member-decl (',' enum-member-decl)* ']' NEWLINE
+
+structured-type-extension ::= 'extend' extendable-type-name ':' NEWLINE INDENT
+      extension-member-decl+ DEDENT
+
+extendable-type-name ::= struct-name | actor-name | qualified-behavior-name
+extension-member-decl ::= struct-member-decl | actor-member-decl | scenario-member-decl | behavior-specification
+/* end::grammar-type-extension[] */
+
+/* tag::grammar-event-declaration[] */
+event-declaration ::= 'event' event-name ['(' argument-list-specification ')'] ['is' event-specification] NEWLINE
+event-specification ::= event-reference [ [event-field-decl] 'if' event-condition ]
+                       | event-condition
+
+event-reference ::= '@' event-path
+event-field-decl ::= 'as' event-field-name
+event-field-name ::= identifier
+event-name ::= identifier
+event-path ::= [expression '.'] event-name
+
+event-condition ::= bool-expression | rise-expression | fall-expression | elapsed-expression | every-expression
+rise-expression ::= 'rise' '(' bool-expression ')'
+fall-expression ::= 'fall' '(' bool-expression ')'
+elapsed-expression ::= 'elapsed' '(' duration-expression ')'
+every-expression ::= 'every' '(' duration-expression [',' 'offset' ':' duration-expression] ')'
+
+bool-expression ::= expression
+duration-expression ::= expression
+/* end::grammar-event-declaration[] */
+
+/* tag::grammar-field-declaration[] */
+field-declaration ::=  parameter-declaration | variable-declaration
+parameter-declaration ::= field-name (',' field-name)* ':' type-declarator ['=' default-value] [parameter-with-declaration] NEWLINE
+variable-declaration ::= 'var' field-name (',' field-name)* ':' type-declarator ['=' default-value | sample-expression ] NEWLINE
+
+sample-expression ::= 'sample' '(' expression ',' event-specification [',' default-value] ')'
+default-value ::= expression
+/* end::grammar-field-declaration[] */
+
+/* tag::grammar-with-declaration[] */
+parameter-with-declaration ::= 'with' ':' NEWLINE INDENT
+      parameter-with-member+ DEDENT
+parameter-with-member ::= constraint-declaration
+/* end::grammar-with-declaration[] */
+
+/* tag::grammar-constraint-declaration[] */
+constraint-declaration ::= keep-constraint-declaration | remove-default-declaration
+/* end::grammar-constraint-declaration[] */
+
+/* tag::grammar-keep-constraint-declaration[] */
+keep-constraint-declaration ::= 'keep' '(' [constraint-qualifier] constraint-expression ')' NEWLINE
+constraint-qualifier ::= 'default' | 'hard'
+
+constraint-expression ::= expression
+/* end::grammar-keep-constraint-declaration[] */
+
+/* tag::grammar-remove-default-declaration[] */
+remove-default-declaration ::= 'remove_default' '(' parameter-reference ')' NEWLINE
+
+parameter-reference ::= field-name | field-access
+/* end::grammar-remove-default-declaration[] */
+
+/* tag::grammar-method-declaration[] */
+method-declaration ::= 'def' method-name '(' [argument-list-specification] ')' ['->' return-type] method-implementation NEWLINE
+
+return-type ::= type-declarator
+
+method-implementation ::= 'is' [method-qualifier] ('expression' expression | 'undefined' | 'external' structured-identifier '(' [argument-list] ')')
+
+method-qualifier ::= 'only'
+method-name ::= identifier
+/* end::grammar-method-declaration[] */
+
+/* tag::grammar-coverage-declaration[] */
+coverage-declaration ::= ('cover' | 'record') '(' argument-list ')' NEWLINE
+/* end::grammar-coverage-declaration[] */
+
+/* tag::grammar-modifier-application[] */
+modifier-application ::= [actor-expression '.'] modifier-name '(' [argument-list] ')' NEWLINE
+/* end::grammar-modifier-application[] */
+
+/* tag::grammar-behavior-specification[] */
+behavior-specification ::= on-directive | do-directive
+/* end::grammar-behavior-specification[] */
+
+/* tag::grammar-on-directive[] */
+on-directive ::= 'on' event-specification ':' NEWLINE INDENT
+     on-member+ DEDENT
+
+on-member ::= call-directive | emit-directive
+/* end::grammar-on-directive[] */
+
+/* tag::grammar-do-directive[] */
+do-directive ::= 'do' do-member
+
+do-member ::= [label-name ':'] ( composition | behavior-invocation | wait-directive | emit-directive | call-directive )
+
+label-name ::= identifier
+/* end::grammar-do-directive[] */
+
+/* tag::grammar-composition[] */
+composition ::= composition-operator ['(' argument-list ')']':' NEWLINE INDENT
+     do-member+ DEDENT [behavior-with-declaration]
+
+composition-operator ::= 'serial' | 'one_of' | 'parallel'
+/* end::grammar-composition[] */
+
+/* tag::grammar-behavior-invocation[] */
+behavior-invocation ::= [actor-expression '.'] behavior-name '(' [argument-list] ')' [behavior-with-declaration] NEWLINE
+
+behavior-with-declaration ::= 'with' ':' NEWLINE INDENT
+      behavior-with-member+ DEDENT
+behavior-with-member ::= constraint-declaration
+                       | modifier-application
+                       | until-directive
+
+actor-expression ::= expression
+/* end::grammar-behavior-invocation[] */
+
+/* tag::grammar-wait-directive[] */
+wait-directive ::= 'wait' event-specification NEWLINE
+/* end::grammar-wait-directive[] */
+
+/* tag::grammar-emit-directive[] */
+emit-directive ::= 'emit' event-name ['(' argument-list ')'] NEWLINE
+/* end::grammar-emit-directive[] */
+
+/* tag::grammar-call-directive[] */
+call-directive ::= 'call' method-invocation NEWLINE
+
+method-invocation ::= postfix-exp '(' [argument-list] ')'
+/* end::grammar-call-directive[] */
+
+/* tag::grammar-until-directive[] */
+until-directive ::= 'until' event-specification NEWLINE
+/* end::grammar-until-directive[] */
+
+/* tag::grammar-argument-list-specification[] */
+argument-list-specification ::= argument-specification (',' argument-specification)*
+
+argument-specification ::= argument-name ':' type-declarator ['=' default-value]
+
+argument-name ::= identifier
+/* end::grammar-argument-list-specification[] */
+
+/* tag::grammar-argument-list[] */
+argument-list ::= positional-argument (',' positional-argument)* (',' named-argument)*
+                | named-argument (',' named-argument)*
+
+positional-argument ::= expression
+named-argument ::= argument-name ':' expression
+/* end::grammar-argument-list[] */
+
+/* tag::grammar-expression[] */
+expression ::= implication | ternary-op-exp
+/* end::grammar-expression[] */
+
+/* tag::grammar-ternary-op-exp[] */
+ternary-op-exp ::= implication '?' expression ':' expression
+/* end::grammar-ternary-op-exp[] */
+
+/* tag::grammar-implication[] */
+implication ::= disjunction ('=>' disjunction)*
+disjunction ::= conjunction ('or' conjunction)*
+conjunction ::= inversion ('and' inversion)*
+inversion ::= 'not' inversion | relation
+/* end::grammar-implication[] */
+
+/* tag::grammar-relation[] */
+relation ::= sum | relation relational-op sum
+relational-op ::= '==' | '!=' | '<' | '<=' | '>' | '>=' | 'in'
+/* end::grammar-relation[] */
+
+/* tag::grammar-sum[] */
+sum ::= term | sum additive-op term
+additive-op ::= '+' | '-'
+
+term ::= factor | term multiplicative-op factor
+multiplicative-op ::= '*' | '/' | '%'
+
+factor ::= postfix-exp | '-' factor
+/* end::grammar-sum[] */
+
+/* tag::grammar-postfix-exp[] */
+postfix-exp ::= primary-exp
+              | cast-exp
+              | type-test-exp
+              | element-access
+              | function-application
+              | field-access
+
+cast-exp ::= postfix-exp '.' 'as' '(' type-declarator ')'
+type-test-exp ::= postfix-exp '.' 'is' '(' type-declarator ')'
+element-access ::= postfix-exp '[' expression ']'
+function-application ::= postfix-exp '(' [argument-list] ')'
+field-access ::= postfix-exp '.' field-name
+/* end::grammar-postfix-exp[] */
+
+/* tag::grammar-primary-exp[] */
+primary-exp ::= value-exp | 'it' | identifier | '(' expression ')'
+
+value-exp ::= integer-literal
+            | float-literal
+            | physical-literal
+            | bool-literal
+            | string-literal
+            | enum-value-reference
+            | list-constructor
+            | range-constructor
+/* end::grammar-primary-exp[] */
+
+/* tag::grammar-list-constructor[] */
+list-constructor ::= '[' expression (',' expression)* ']'
+/* end::grammar-list-constructor[] */
+
+/* tag::grammar-range-constructor[] */
+range-constructor ::= 'range' '(' expression ',' expression ')' | '[' expression '..' expression ']'
+/* end::grammar-range-constructor[] */
+
+/* Lexical structure */
+
+/* tag::grammar-identifier[] */
+identifier ::= ( id-start-char id-char* ) | ( '|' non-vertical-line-char+ '|' )
+/* end::grammar-identifier[] */
+
+/*
+where `id-start-char` matches all characters of the following Unicode character categories:
+
+* Ll -- Lowercase Letter
+* Lm -- Modifier Letter
+* Lo -- Other Letter
+* Lt -- Titlecase Letter
+* Lu -- Uppercase Letter
+* Nl -- Letter Number
+
+It also matches the underscore character `_` (U+005F).
+
+`id-char` matches all characters that `id-start-char` matches, and additionally all characters of the following Unicode character categories:
+
+* Mc -- Spacing Combining Mark
+* Mn -- Nonspacing Mark
+* Nd -- Decimal Number
+* Pc -- Connector Punctuations
+
+`non-vertical-line-char` matches all Unicode characters, except the vertical line `|` (U+007C) character.
+*/
+
+/* tag::grammar-string-literal[] */
+string-literal ::= shortstring | longstring
+shortstring ::= ('"' shortstring-elem* '"') | ("'" shortstring-elem* "'")
+longstring ::= ('"""' longstring-elem* '"""') | ("'''" longstring-elem* "'''")
+shortstring-elem ::= shortstring-char | string-escape-seq
+longstring-elem ::= longstring-char | string-escape-seq
+string-escape-seq ::= '\' any-char
+/* end::grammar-string-literal[] */
+
+/*
+where `shortstring-char` matches any Unicode character except `\`, the quote character used to introduce the string, or any end-of-line character.
+
+`longstring-char` matches any Unicode character except `\`, and `any-char` matches any Unicode character.
+*/
+
+/* tag::grammar-bool-literal[] */
+bool-literal ::= 'true' | 'false'
+/* end::grammar-bool-literal[] */
+
+/* tag::grammar-integer-literal[] */
+integer-literal ::= uint-literal | hex-uint-literal | int-literal
+uint-literal ::= digit+
+hex-uint-literal ::= '0x' hex-digit+
+int-literal ::= '-' digit+
+digit ::= '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9'
+hex-digit ::= digit | 'A' | 'a' | 'B' | 'b' | 'C' | 'c' | 'D' | 'd' | 'E' | 'e' | 'F' | 'f'
+/* end::grammar-integer-literal[] */
+
+/* tag::grammar-float-literal[] */
+float-literal ::= ['+' | '-'] digit* '.' digit+ [('e' | 'E') ['+'|'-'] digit+]
+/* end::grammar-float-literal[] */
+
+/* tag::grammar-physical-literal[] */
+physical-literal ::= (float-literal | integer-literal) unit-name
+unit-name ::= identifier
+/* end::grammar-physical-literal[] */

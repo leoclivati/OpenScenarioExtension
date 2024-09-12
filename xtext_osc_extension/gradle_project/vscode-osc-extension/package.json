@@ -1,0 +1,41 @@
+{
+  "name": "osc",
+  "displayName": "OpenScenario",
+  "description": "",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.92.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ], 
+  "main": "out/extension",
+  "contributes": {
+    "languages": [{
+      "id": "osc",
+      "aliases": ["OpenSCENARIO", "osc"],
+      "extensions": [".osc"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "osc",
+      "scopeName": "source.osc",
+      "path": "./syntaxes/osc.tmLanguage.json"
+    }]
+  },
+  "devDependencies": {
+    "@types/node": "^22.4.1",
+    "@types/vscode": "^1.92.0",
+    "typescript": "^5.5.4",
+    "vscode-test": "^1.6.1"
+  },
+  "dependencies": {
+    "vscode-languageclient": "^9.0.1"
+  },
+  "scripts": {
+        "prepublish": "tsc -p ./src",
+        "compile": "tsc -p ./src",
+        "watch": "tsc -w -p ./src",
+        "update-vscode": "node ./node_modules/vscode/bin/install"
+    }
+}

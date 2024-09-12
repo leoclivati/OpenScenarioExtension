@@ -1,0 +1,9 @@
+grammar de.bmwgroup.openscenario.asam.OpenScenario with org.eclipse.xtext.common.Terminals
+
+generate openScenario "http://www.bmwgroup.de/openscenario/asam/OpenScenario"
+
+Model:
+	greetings+=Greeting*;
+	
+Greeting:
+	'Hello' name=ID '!';

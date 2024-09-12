@@ -1,0 +1,4 @@
+include 'de.bmwgroup.openscenario.asam'
+include 'de.bmwgroup.openscenario.asam.ide'
+include 'vscode-osc-extension'
+include 'vscode-osc-extension-self-contained'

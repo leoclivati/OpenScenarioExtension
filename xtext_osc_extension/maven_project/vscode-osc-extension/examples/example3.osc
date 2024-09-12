@@ -1,0 +1,43 @@
+import "ee"
+
+global rr: int
+global yy: string
+
+
+scenario elk:
+    gvt: vehicle
+    dut: vehicle
+    routeToFollow: route with:
+        keep(gvt)
+
+    do parallel:
+        gvt.dut() with:
+            along(route: routeToFollow, distance: '''"e"''')
+            lane(side_of)
+            lane(same_as)
+            lateral(distance: 2 * 3 * 4/5, route: er)
+        
+        #call gvt.as()
+
+        gvt*dvt*ge/re.drive() with:
+            keep(e)
+            until ee
+
+struct ee inherits elk:
+    gvt: vehicle
+
+action aa inherits ee:
+    gvt: vehicle
+
+actor bb:
+    gvt: vehicle
+
+modifier bb.gg:
+    gvt:vehicle
+
+enum ff: [tt, tt, ee=2, aa=0xfA]
+
+extend bb:
+    gvt: vehicle
+
+type uu is SI(kg:20, m:30)

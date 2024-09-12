@@ -1,0 +1,471 @@
+grammar de.bmwgroup.openscenario.asam.OpenScenario with org.eclipse.xtext.common.Terminals
+
+generate openScenario "http://www.bmwgroup.de/openscenario/asam/OpenScenario"
+
+
+OscFile:
+    preludeStatements+=PreludeStatement* 
+    oscDeclarations+=OscDeclaration*
+;
+
+PreludeStatement:
+    ImportStatement
+;
+
+ImportStatement:
+    'import' importReference=ImportReference
+;
+
+ImportReference:
+    STRING | StructuredID
+;
+    
+StructuredID:
+    identifier+=ID ('.' identifier+=ID)*
+;
+
+OscDeclaration:
+	ScenarioDeclaration | StructDeclaration | ActorDeclaration | ActionDeclaration
+	| ModifierDeclaration | EnumDeclaration | GlobalParameterDeclaration | TypeExtension
+	| UnitDeclaration | PhysicalTypeDeclaration
+;
+
+//PhysicalTypeDeclaration
+PhysicalTypeDeclaration:
+    'type' physicalTypeName=ID 'is' baseUnitSpecifier=SIBaseUnitSpecifier
+;
+
+
+// Unit declaration
+UnitDeclaration:
+    'unit' unitName=ID 'of' physicalTypeName=ID 'is' unitSpecifier=SIUnitSpecifier;
+
+SIBaseUnitSpecifier:
+    'SI' '(' SIBaseExponentList=SIBaseExponentList ')';
+    
+SIBaseExponentList:
+	SIBaseExponentList=SIBaseExponent (',' NextSIBaseExponentList+=SIBaseExponent)*
+;
+
+SIBaseExponent:
+    unit=SIBaseUnitName ':' number=INTEGER;
+
+SIUnitSpecifier:
+    'SI' '(' SIBaseExponentList=SIBaseExponentList (',' SIfactor=SIUnitFactor)? (',' SIUnit=SIUnitOffset)? ')';
+
+SIUnitFactor:
+    'factor' ':' (FLOAT | INTEGER);
+
+SIUnitOffset:
+    'offset' ':' (FLOAT | INTEGER);
+
+SIBaseUnitName:
+    'kg' | 'm' | 's' | 'A' | 'K' | 'mol' | 'cd' | 'rad' | 'kph';
+
+
+// Type extension
+TypeExtension:
+    EnumTypeExtension | StructuredTypeExtension;
+
+EnumTypeExtension:
+    'extend' enumName=ID ':' '[' enumMemberDecls+=EnumMemberDeclaration (',' enumMemberDecls+=EnumMemberDeclaration)* ']';
+
+StructuredTypeExtension:
+    'extend' extendableTypeName=ID ':'  
+    BEGIN
+    	(extensionMemberDecls+=ExtensionMemberDeclaration)*
+    END
+;
+
+ExtensionMemberDeclaration:
+     MemberDeclaration | BehaviorSpecification;
+
+//GlobalParameterDeclaration
+GlobalParameterDeclaration:
+    'global' parameterDeclaration=ParameterDeclaration
+;
+
+ParameterDeclaration:
+	fieldName=ID (',' NextfieldName+=ID)* ':' typeDeclarator=TypeDeclarator 
+	('=' defaultValue=Expression)? (withDeclaration=ParameterWithDeclaration)?
+;
+
+TypeDeclarator:
+    NonAggregateTypeDeclarator | ListTypeDeclarator
+;
+
+NonAggregateTypeDeclarator:
+	PrimitiveType | ID
+;
+
+ListTypeDeclarator:
+	'list' 'of' NonAggregateTypeDeclarator
+;
+
+PrimitiveType:
+	'int' | 'uint' | 'float' | 'bool' | 'string'
+;
+
+//EnumDeclaration
+EnumDeclaration:
+    'enum' enumName=ID ':' '[' enumMemberDecls+=EnumMemberDeclaration (',' enumMemberDecls+=EnumMemberDeclaration)* ']'
+;
+
+EnumMemberDeclaration:
+    enumMemberName=ID ( '=' enumMemberValue= INTEGER )?
+;
+
+EnumValueReference:
+    (enumName=ID '!')? enumMemberName=ID
+;
+
+//ModifierDeclaration
+ModifierDeclaration:
+    'modifier' (actorName=ID '.')? modifierName=ID 
+    ('of' qualifiedBehaviorName=ID)? ':'  
+    BEGIN
+    	(ScenarioMemberDecl+=MemberDeclaration | BehaviorSpecification+=OnDirective)*
+    END
+;
+
+//ActionDeclaration
+ActionDeclaration:
+    'action' name=ID 
+    ('inherits' baseActionName=ID 
+     ('(' fieldName=ID '==' (enumReference = EnumValueReference | BOOL) ')')?)? ':'  
+     BEGIN
+     	(ActionMemberDecl+=MemberDeclaration)*
+     END
+;
+
+//ActorDeclaration
+ActorDeclaration:
+    'actor' name=ID 
+    ('inherits' baseActorName=ID 
+     ('(' fieldName=ID '==' (enumReference = EnumValueReference | BOOL) ')')?)? (':' 
+     BEGIN
+     	(ActorMemberDecl+=MemberDeclaration)*
+     END )?
+;
+
+//StructDeclaration
+StructDeclaration:
+    'struct' name=ID 
+    ('inherits' baseStructName=ID
+     ('(' fieldName=ID '==' (enumReference = EnumValueReference | BOOL) ')')?)? ':'  
+     BEGIN
+     	(StructMemberDecl+=MemberDeclaration)*
+     END
+;
+
+//Scenario Declaration
+ScenarioDeclaration:
+    'scenario' name=ID 
+    ('inherits' baseScenarioName=ID 
+     ('(' fieldName=ID '==' (enumReference = EnumValueReference | BOOL) ')')?)? ':'  
+     BEGIN
+     	(ScenarioMemberDecl+=MemberDeclaration | BehaviorSpecification+=BehaviorSpecification)*
+     END
+;
+
+//MemberDeclaration  
+MemberDeclaration:
+	FieldDeclaration | EventDeclaration | MethodDeclaration |
+	CoverageDeclaration | ConstraintDeclaration
+;
+
+//CoverageDeclaration
+CoverageDeclaration:
+	('cover' | 'record') '(' argumentList=ArgumentList ')'	
+;
+
+//MethodDeclaration
+MethodDeclaration:
+	'def' methodName=ID '(' (argumentListSpecification=ArgumentListSpecification)? ')' 
+	('->' returnType=TypeDeclarator)? methodImplementation=MethodImplementation 
+;
+
+MethodImplementation:
+	'is' ('only')? 
+	('expression' expression=Expression | 'undefined' | 
+	'external' structuredID=StructuredID '(' (argumentList=ArgumentList)? ')')
+;
+
+//EventDeclaration 
+EventDeclaration:
+	'event' eventName=ID 
+    ('(' (params+=ArgumentListSpecification (',' params+=ArgumentListSpecification)*)? ')')? 
+    ('is' eventSpecification=EventSpecification)? 
+;
+
+EventSpecification:
+	eventReference=EventReference (('as' eventFieldName=ID)? 'if' eventCondition=EventCondition)? |
+    eventCondition=EventCondition
+;
+
+EventReference:
+    '@' eventPath=EventPath;
+
+EventPath:
+    (expression=Expression '.')? eventName=ID;
+
+EventCondition:
+    Expression | Condition | RiseExpression | FallExpression | ElapsedExpression | EveryExpression    
+;
+
+RiseExpression:
+    'rise' '(' boolExpression=Expression ')'
+;
+
+FallExpression:
+    'fall' '(' boolExpression=Expression ')'
+;
+
+ElapsedExpression:
+    'elapsed' '(' durationExpression=Expression ')'
+;
+
+EveryExpression:
+    'every' '(' durationExpression=Expression (',' 'offset' ':' NextdurationExpression+=Expression)? ')'
+;
+
+//FieldDeclaration
+FieldDeclaration:
+	 ParameterDeclaration | VariableDeclaration;
+	
+//VariableDeclaration 
+VariableDeclaration:
+	'var' fieldName=ID (',' NextfieldName+=ID)* ':' typeDeclarator=TypeDeclarator 
+	('=' (defaultValue=Expression|sampleExpression=SampleExpression))?
+;
+
+SampleExpression:
+	'sample' '(' expression=Expression ',' eventSpecification=EventSpecification 
+	(',' defaultValue=Expression)? ')'
+;
+
+
+// Behavior Specification
+BehaviorSpecification:
+	OnDirective | DoDirective
+;
+
+//OnDirective
+OnDirective:
+	'on' eventSpecification=ID ':' 
+	BEGIN
+		(onMember+=OnDirectiveMember)*
+	END
+;
+
+OnDirectiveMember:
+	CallDirective | EmitDirective
+;
+
+CallDirective:
+	'call' methodInvocation=MethodInvocation
+;
+
+EmitDirective:
+	'emit' eventName=ID '(' argumentList=ArgumentList ')'
+;
+
+WaitDirective:
+	'wait' eventSpecification=EventSpecification
+;
+
+//DoDirective
+DoDirective:
+	'do' doMembers=DoDirectiveMember
+;
+
+DoDirectiveMember:
+	(labelName=ID ':')? (composition=Composition 
+	| emitDirective=EmitDirective | callDirective=CallDirective
+	| waitDirective=WaitDirective | behaviorInvocation=BehaviorInvocation
+	)
+;
+
+Composition:
+	compositionOp = CompositionOptions ('(' argumentList=ArgumentList ')')? ':'  
+	BEGIN
+		(doMembers+=DoDirectiveMember (withDeclaration+=BehaviorWithDeclaration)?)*
+	END
+;
+
+CompositionOptions:
+	'serial' | 'one_of' | 'parallel'
+;
+
+
+BehaviorInvocation:
+	actorExpression=Expression '(' (argumentList=ArgumentList)? ')' 
+;
+
+//ParameterWith
+ParameterWithDeclaration:
+	'with' ':'  
+	BEGIN
+		(parameterWithMembers+=ConstraintDeclaration)*
+	END
+;
+
+
+//BehaviorWith
+BehaviorWithDeclaration:
+	'with' ':' 
+	BEGIN
+		(behaviorWithMembers+=BehaviorWithMember)*
+	END
+;
+
+BehaviorWithMember:
+	ConstraintDeclaration | BehaviorInvocation | UntilDirective
+;
+
+ConstraintDeclaration:
+	KeepConstraintDeclaration | RemoveDefaultDeclaration
+;
+
+KeepConstraintDeclaration:
+	'keep' '(' (constraintQualifier=ConstraintQualifier)? constraintExpression=Expression ')'	
+;
+
+ConstraintQualifier:
+	'default' | 'hard'
+;
+
+RemoveDefaultDeclaration:
+	'remove_default' '(' parameterReference=ParameterReference ')'	
+;
+
+UntilDirective:
+	'until' eventSpecification=EventSpecification	
+;
+
+//Argument List
+ArgumentListSpecification:
+	argumentSpecification+=ArgumentSpecification (',' argumentSpecification+=ArgumentSpecification)
+;
+
+ArgumentSpecification:
+	argumentName=ID ':' typeDeclarator=TypeDeclarator ('=' defaultValue=Expression)?	
+;
+
+ArgumentList:
+	positionalArguments+=Expression (',' positionalArguments+=Expression)* 
+	(',' namedArguments+=NamedArgument)* |
+	namedArguments+=NamedArgument (',' namedArguments+=NamedArgument)*
+;
+
+NamedArgument:
+	(argumentName=ID | 'offset') ':' expression=Expression ('(' (argumentList=ArgumentList)? ')')?
+;
+
+//PostfixExp
+PostfixExp:
+	primaryExp=PrimaryExp (tail+=PostfixExpTail)*
+;
+
+PostfixExpTail:
+	CastExpTail | TypeTestTail | FieldAccessTail  
+;
+
+CastExpTail:
+	'.' 'as' '(' typeDeclarator+=TypeDeclarator ')'
+;
+
+TypeTestTail:
+	'.' 'is' '(' typeDeclarator+=TypeDeclarator ')'
+;
+
+ElementAccessTail:
+	'[' expression+=Expression ']' //Couldn't integrate without generating fatal errors
+;
+
+FieldAccessTail:
+	'.' fieldName+=ID
+;
+
+MethodInvocation:
+	PostfixExp '(' (argumentList+=ArgumentList)? ')' //Generate Warnings: Repetition of the format in some cases
+;
+
+ParameterReference:
+	(PostfixExp '.' fieldName+=ID) //Generate Warnings: Repetition of the format in some cases
+;
+
+//Assistence
+PrimaryExp:
+	 'it' | ValueExp | ListConstructor | RangeConstructor
+;
+
+ValueExp:
+	BOOL | PhysicalType | STRING | EnumValueReference 
+;
+
+PhysicalType:
+	(numberInteger = INTEGER | numberFloat = FLOAT) (unitBaseName=SIBaseUnitName |unitName=ID)? //Generate Warnings: Due to ID considers all text
+;
+
+// List constructor
+ListConstructor:
+	'[' elements+=ValueExp (',' elements+=ValueExp)* ']';
+
+// Range constructor
+RangeConstructor:
+	'range' '(' start=ValueExp ',' end=ValueExp ')' |
+	'[' start=ValueExp '..' end=ValueExp ']';
+
+Condition:
+	condition = Expression '?' trueResult=Expression ':' falseResult=Expression
+;
+
+Expression:
+	 Relation
+;
+
+Relation:
+	('not')? Sum (relationalOp+=RelationalOp nextSum+=Sum)*
+;
+
+RelationalOp:
+	'==' | '!=' | '<' | '<=' | '>' | '>=' | 'in' | 'and' | 'or' | '=>'
+;
+
+Sum:
+	Term (additiveOp+=AdditiveOp nextTerm+=Term)*
+;
+
+AdditiveOp:
+	'+' | '-' //Generate Warnings: Due to repetition of the format +2, -0x45
+;
+
+Term:
+	Factor (multiplicativeOp+=MultiplicativeOp nextFactor+=Factor)*
+;
+
+MultiplicativeOp:
+	'*' | '/' | '%'
+;
+
+Factor:
+	('-')? PostfixExp
+;
+    
+terminal BEGIN: 'synthetic:BEGIN';  
+terminal END: 'synthetic:END';     
+terminal BOOL: 'true'|'false';
+terminal INTEGER: ('-')? INT | ('0x' ('0'..'9' | 'a'..'f' | 'A'..'F')+);
+terminal FLOAT:('+' | '-')? INT '.' INT (('e' | 'E') ('+' | '-')? ('0'..'9'+))?; 
+	
+@Override
+terminal SL_COMMENT: '#' !('\n'|'\r')* ('\r'? '\n')?
+;
+@Override
+terminal STRING:
+			'"' ( '\\' . | !('\\'|'"') )* '"' |  
+    		"'" ( '\\' . | !('\\'|"'") )* "'" |  
+    		"'''" ( '\\' . | !('\\'|"'") )* "'''" |  
+    		'"""' ( '\\' . | !('\\'|'"') )* '"""'  
+;

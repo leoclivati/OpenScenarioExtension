@@ -1,0 +1,7 @@
+import standard.osc
+
+scenario uu:
+    gvt: vehicle
+    event efieldName
+
+    

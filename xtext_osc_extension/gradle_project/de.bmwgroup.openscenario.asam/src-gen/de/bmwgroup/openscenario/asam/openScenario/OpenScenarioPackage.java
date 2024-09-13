@@ -798,7 +798,7 @@ public interface OpenScenarioPackage extends EPackage
    * @see de.bmwgroup.openscenario.asam.openScenario.impl.OpenScenarioPackageImpl#getPrimaryExp()
    * @generated
    */
-  int PRIMARY_EXP = 71;
+  int PRIMARY_EXP = 69;
 
   /**
    * The number of structural features of the '<em>Primary Exp</em>' class.
@@ -817,7 +817,7 @@ public interface OpenScenarioPackage extends EPackage
    * @see de.bmwgroup.openscenario.asam.openScenario.impl.OpenScenarioPackageImpl#getValueExp()
    * @generated
    */
-  int VALUE_EXP = 72;
+  int VALUE_EXP = 70;
 
   /**
    * The number of structural features of the '<em>Value Exp</em>' class.
@@ -940,13 +940,13 @@ public interface OpenScenarioPackage extends EPackage
   int ACTION_DECLARATION = 22;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * The feature id for the '<em><b>Action Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ACTION_DECLARATION__NAME = OSC_DECLARATION_FEATURE_COUNT + 0;
+  int ACTION_DECLARATION__ACTION_NAME = OSC_DECLARATION_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Base Action Name</b></em>' attribute.
@@ -1004,13 +1004,13 @@ public interface OpenScenarioPackage extends EPackage
   int ACTOR_DECLARATION = 23;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * The feature id for the '<em><b>Actor Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ACTOR_DECLARATION__NAME = OSC_DECLARATION_FEATURE_COUNT + 0;
+  int ACTOR_DECLARATION__ACTOR_NAME = OSC_DECLARATION_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Base Actor Name</b></em>' attribute.
@@ -1068,13 +1068,13 @@ public interface OpenScenarioPackage extends EPackage
   int STRUCT_DECLARATION = 24;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * The feature id for the '<em><b>Struct Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int STRUCT_DECLARATION__NAME = OSC_DECLARATION_FEATURE_COUNT + 0;
+  int STRUCT_DECLARATION__STRUCT_NAME = OSC_DECLARATION_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Base Struct Name</b></em>' attribute.
@@ -1132,13 +1132,13 @@ public interface OpenScenarioPackage extends EPackage
   int SCENARIO_DECLARATION = 25;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * The feature id for the '<em><b>Scenario Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SCENARIO_DECLARATION__NAME = OSC_DECLARATION_FEATURE_COUNT + 0;
+  int SCENARIO_DECLARATION__SCENARIO_NAME = OSC_DECLARATION_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Base Scenario Name</b></em>' attribute.
@@ -2443,7 +2443,7 @@ public interface OpenScenarioPackage extends EPackage
    * @see de.bmwgroup.openscenario.asam.openScenario.impl.OpenScenarioPackageImpl#getMethodInvocation()
    * @generated
    */
-  int METHOD_INVOCATION = 69;
+  int METHOD_INVOCATION = 68;
 
   /**
    * The number of structural features of the '<em>Method Invocation</em>' class.
@@ -2546,22 +2546,13 @@ public interface OpenScenarioPackage extends EPackage
   int POSTFIX_EXP__ARGUMENT_LIST = METHOD_INVOCATION_FEATURE_COUNT + 8;
 
   /**
-   * The feature id for the '<em><b>Field Name</b></em>' attribute list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int POSTFIX_EXP__FIELD_NAME = METHOD_INVOCATION_FEATURE_COUNT + 9;
-
-  /**
    * The number of structural features of the '<em>Postfix Exp</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int POSTFIX_EXP_FEATURE_COUNT = METHOD_INVOCATION_FEATURE_COUNT + 10;
+  int POSTFIX_EXP_FEATURE_COUNT = METHOD_INVOCATION_FEATURE_COUNT + 9;
 
   /**
    * The meta object id for the '{@link de.bmwgroup.openscenario.asam.openScenario.impl.PostfixExpTailImpl <em>Postfix Exp Tail</em>}' class.
@@ -2639,34 +2630,6 @@ public interface OpenScenarioPackage extends EPackage
   int TYPE_TEST_TAIL_FEATURE_COUNT = POSTFIX_EXP_TAIL_FEATURE_COUNT + 1;
 
   /**
-   * The meta object id for the '{@link de.bmwgroup.openscenario.asam.openScenario.impl.ElementAccessTailImpl <em>Element Access Tail</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see de.bmwgroup.openscenario.asam.openScenario.impl.ElementAccessTailImpl
-   * @see de.bmwgroup.openscenario.asam.openScenario.impl.OpenScenarioPackageImpl#getElementAccessTail()
-   * @generated
-   */
-  int ELEMENT_ACCESS_TAIL = 67;
-
-  /**
-   * The feature id for the '<em><b>Expression</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ELEMENT_ACCESS_TAIL__EXPRESSION = 0;
-
-  /**
-   * The number of structural features of the '<em>Element Access Tail</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ELEMENT_ACCESS_TAIL_FEATURE_COUNT = 1;
-
-  /**
    * The meta object id for the '{@link de.bmwgroup.openscenario.asam.openScenario.impl.FieldAccessTailImpl <em>Field Access Tail</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2674,16 +2637,16 @@ public interface OpenScenarioPackage extends EPackage
    * @see de.bmwgroup.openscenario.asam.openScenario.impl.OpenScenarioPackageImpl#getFieldAccessTail()
    * @generated
    */
-  int FIELD_ACCESS_TAIL = 68;
+  int FIELD_ACCESS_TAIL = 67;
 
   /**
-   * The feature id for the '<em><b>Field Name</b></em>' attribute list.
+   * The feature id for the '<em><b>Field Access</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FIELD_ACCESS_TAIL__FIELD_NAME = POSTFIX_EXP_TAIL_FEATURE_COUNT + 0;
+  int FIELD_ACCESS_TAIL__FIELD_ACCESS = POSTFIX_EXP_TAIL_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Field Access Tail</em>' class.
@@ -2695,25 +2658,6 @@ public interface OpenScenarioPackage extends EPackage
   int FIELD_ACCESS_TAIL_FEATURE_COUNT = POSTFIX_EXP_TAIL_FEATURE_COUNT + 1;
 
   /**
-   * The meta object id for the '{@link de.bmwgroup.openscenario.asam.openScenario.impl.ParameterReferenceImpl <em>Parameter Reference</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see de.bmwgroup.openscenario.asam.openScenario.impl.ParameterReferenceImpl
-   * @see de.bmwgroup.openscenario.asam.openScenario.impl.OpenScenarioPackageImpl#getParameterReference()
-   * @generated
-   */
-  int PARAMETER_REFERENCE = 70;
-
-  /**
-   * The number of structural features of the '<em>Parameter Reference</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PARAMETER_REFERENCE_FEATURE_COUNT = 0;
-
-  /**
    * The meta object id for the '{@link de.bmwgroup.openscenario.asam.openScenario.impl.PhysicalTypeImpl <em>Physical Type</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2721,7 +2665,7 @@ public interface OpenScenarioPackage extends EPackage
    * @see de.bmwgroup.openscenario.asam.openScenario.impl.OpenScenarioPackageImpl#getPhysicalType()
    * @generated
    */
-  int PHYSICAL_TYPE = 73;
+  int PHYSICAL_TYPE = 71;
 
   /**
    * The feature id for the '<em><b>Number Integer</b></em>' attribute.
@@ -2776,7 +2720,7 @@ public interface OpenScenarioPackage extends EPackage
    * @see de.bmwgroup.openscenario.asam.openScenario.impl.OpenScenarioPackageImpl#getListConstructor()
    * @generated
    */
-  int LIST_CONSTRUCTOR = 74;
+  int LIST_CONSTRUCTOR = 72;
 
   /**
    * The feature id for the '<em><b>Elements</b></em>' containment reference list.
@@ -2804,7 +2748,7 @@ public interface OpenScenarioPackage extends EPackage
    * @see de.bmwgroup.openscenario.asam.openScenario.impl.OpenScenarioPackageImpl#getRangeConstructor()
    * @generated
    */
-  int RANGE_CONSTRUCTOR = 75;
+  int RANGE_CONSTRUCTOR = 73;
 
   /**
    * The feature id for the '<em><b>Start</b></em>' containment reference.
@@ -2841,7 +2785,7 @@ public interface OpenScenarioPackage extends EPackage
    * @see de.bmwgroup.openscenario.asam.openScenario.impl.OpenScenarioPackageImpl#getCondition()
    * @generated
    */
-  int CONDITION = 76;
+  int CONDITION = 74;
 
   /**
    * The feature id for the '<em><b>Condition</b></em>' containment reference.
@@ -2887,7 +2831,7 @@ public interface OpenScenarioPackage extends EPackage
    * @see de.bmwgroup.openscenario.asam.openScenario.impl.OpenScenarioPackageImpl#getExpression()
    * @generated
    */
-  int EXPRESSION = 77;
+  int EXPRESSION = 75;
 
   /**
    * The number of structural features of the '<em>Expression</em>' class.
@@ -2906,7 +2850,7 @@ public interface OpenScenarioPackage extends EPackage
    * @see de.bmwgroup.openscenario.asam.openScenario.impl.OpenScenarioPackageImpl#getRelation()
    * @generated
    */
-  int RELATION = 78;
+  int RELATION = 76;
 
   /**
    * The number of structural features of the '<em>Relation</em>' class.
@@ -2925,7 +2869,7 @@ public interface OpenScenarioPackage extends EPackage
    * @see de.bmwgroup.openscenario.asam.openScenario.impl.OpenScenarioPackageImpl#getSum()
    * @generated
    */
-  int SUM = 79;
+  int SUM = 77;
 
   /**
    * The feature id for the '<em><b>Relational Op</b></em>' attribute list.
@@ -2962,7 +2906,7 @@ public interface OpenScenarioPackage extends EPackage
    * @see de.bmwgroup.openscenario.asam.openScenario.impl.OpenScenarioPackageImpl#getTerm()
    * @generated
    */
-  int TERM = 80;
+  int TERM = 78;
 
   /**
    * The feature id for the '<em><b>Relational Op</b></em>' attribute list.
@@ -3017,7 +2961,7 @@ public interface OpenScenarioPackage extends EPackage
    * @see de.bmwgroup.openscenario.asam.openScenario.impl.OpenScenarioPackageImpl#getFactor()
    * @generated
    */
-  int FACTOR = 81;
+  int FACTOR = 79;
 
   /**
    * The feature id for the '<em><b>Relational Op</b></em>' attribute list.
@@ -3688,15 +3632,15 @@ public interface OpenScenarioPackage extends EPackage
   EClass getActionDeclaration();
 
   /**
-   * Returns the meta object for the attribute '{@link de.bmwgroup.openscenario.asam.openScenario.ActionDeclaration#getName <em>Name</em>}'.
+   * Returns the meta object for the attribute '{@link de.bmwgroup.openscenario.asam.openScenario.ActionDeclaration#getActionName <em>Action Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see de.bmwgroup.openscenario.asam.openScenario.ActionDeclaration#getName()
+   * @return the meta object for the attribute '<em>Action Name</em>'.
+   * @see de.bmwgroup.openscenario.asam.openScenario.ActionDeclaration#getActionName()
    * @see #getActionDeclaration()
    * @generated
    */
-  EAttribute getActionDeclaration_Name();
+  EAttribute getActionDeclaration_ActionName();
 
   /**
    * Returns the meta object for the attribute '{@link de.bmwgroup.openscenario.asam.openScenario.ActionDeclaration#getBaseActionName <em>Base Action Name</em>}'.
@@ -3753,15 +3697,15 @@ public interface OpenScenarioPackage extends EPackage
   EClass getActorDeclaration();
 
   /**
-   * Returns the meta object for the attribute '{@link de.bmwgroup.openscenario.asam.openScenario.ActorDeclaration#getName <em>Name</em>}'.
+   * Returns the meta object for the attribute '{@link de.bmwgroup.openscenario.asam.openScenario.ActorDeclaration#getActorName <em>Actor Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see de.bmwgroup.openscenario.asam.openScenario.ActorDeclaration#getName()
+   * @return the meta object for the attribute '<em>Actor Name</em>'.
+   * @see de.bmwgroup.openscenario.asam.openScenario.ActorDeclaration#getActorName()
    * @see #getActorDeclaration()
    * @generated
    */
-  EAttribute getActorDeclaration_Name();
+  EAttribute getActorDeclaration_ActorName();
 
   /**
    * Returns the meta object for the attribute '{@link de.bmwgroup.openscenario.asam.openScenario.ActorDeclaration#getBaseActorName <em>Base Actor Name</em>}'.
@@ -3818,15 +3762,15 @@ public interface OpenScenarioPackage extends EPackage
   EClass getStructDeclaration();
 
   /**
-   * Returns the meta object for the attribute '{@link de.bmwgroup.openscenario.asam.openScenario.StructDeclaration#getName <em>Name</em>}'.
+   * Returns the meta object for the attribute '{@link de.bmwgroup.openscenario.asam.openScenario.StructDeclaration#getStructName <em>Struct Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see de.bmwgroup.openscenario.asam.openScenario.StructDeclaration#getName()
+   * @return the meta object for the attribute '<em>Struct Name</em>'.
+   * @see de.bmwgroup.openscenario.asam.openScenario.StructDeclaration#getStructName()
    * @see #getStructDeclaration()
    * @generated
    */
-  EAttribute getStructDeclaration_Name();
+  EAttribute getStructDeclaration_StructName();
 
   /**
    * Returns the meta object for the attribute '{@link de.bmwgroup.openscenario.asam.openScenario.StructDeclaration#getBaseStructName <em>Base Struct Name</em>}'.
@@ -3883,15 +3827,15 @@ public interface OpenScenarioPackage extends EPackage
   EClass getScenarioDeclaration();
 
   /**
-   * Returns the meta object for the attribute '{@link de.bmwgroup.openscenario.asam.openScenario.ScenarioDeclaration#getName <em>Name</em>}'.
+   * Returns the meta object for the attribute '{@link de.bmwgroup.openscenario.asam.openScenario.ScenarioDeclaration#getScenarioName <em>Scenario Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see de.bmwgroup.openscenario.asam.openScenario.ScenarioDeclaration#getName()
+   * @return the meta object for the attribute '<em>Scenario Name</em>'.
+   * @see de.bmwgroup.openscenario.asam.openScenario.ScenarioDeclaration#getScenarioName()
    * @see #getScenarioDeclaration()
    * @generated
    */
-  EAttribute getScenarioDeclaration_Name();
+  EAttribute getScenarioDeclaration_ScenarioName();
 
   /**
    * Returns the meta object for the attribute '{@link de.bmwgroup.openscenario.asam.openScenario.ScenarioDeclaration#getBaseScenarioName <em>Base Scenario Name</em>}'.
@@ -5066,17 +5010,6 @@ public interface OpenScenarioPackage extends EPackage
   EReference getPostfixExp_ArgumentList();
 
   /**
-   * Returns the meta object for the attribute list '{@link de.bmwgroup.openscenario.asam.openScenario.PostfixExp#getFieldName <em>Field Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute list '<em>Field Name</em>'.
-   * @see de.bmwgroup.openscenario.asam.openScenario.PostfixExp#getFieldName()
-   * @see #getPostfixExp()
-   * @generated
-   */
-  EAttribute getPostfixExp_FieldName();
-
-  /**
    * Returns the meta object for class '{@link de.bmwgroup.openscenario.asam.openScenario.PostfixExpTail <em>Postfix Exp Tail</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -5129,27 +5062,6 @@ public interface OpenScenarioPackage extends EPackage
   EAttribute getTypeTestTail_TypeDeclarator();
 
   /**
-   * Returns the meta object for class '{@link de.bmwgroup.openscenario.asam.openScenario.ElementAccessTail <em>Element Access Tail</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Element Access Tail</em>'.
-   * @see de.bmwgroup.openscenario.asam.openScenario.ElementAccessTail
-   * @generated
-   */
-  EClass getElementAccessTail();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link de.bmwgroup.openscenario.asam.openScenario.ElementAccessTail#getExpression <em>Expression</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Expression</em>'.
-   * @see de.bmwgroup.openscenario.asam.openScenario.ElementAccessTail#getExpression()
-   * @see #getElementAccessTail()
-   * @generated
-   */
-  EReference getElementAccessTail_Expression();
-
-  /**
    * Returns the meta object for class '{@link de.bmwgroup.openscenario.asam.openScenario.FieldAccessTail <em>Field Access Tail</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -5160,15 +5072,15 @@ public interface OpenScenarioPackage extends EPackage
   EClass getFieldAccessTail();
 
   /**
-   * Returns the meta object for the attribute list '{@link de.bmwgroup.openscenario.asam.openScenario.FieldAccessTail#getFieldName <em>Field Name</em>}'.
+   * Returns the meta object for the attribute '{@link de.bmwgroup.openscenario.asam.openScenario.FieldAccessTail#getFieldAccess <em>Field Access</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute list '<em>Field Name</em>'.
-   * @see de.bmwgroup.openscenario.asam.openScenario.FieldAccessTail#getFieldName()
+   * @return the meta object for the attribute '<em>Field Access</em>'.
+   * @see de.bmwgroup.openscenario.asam.openScenario.FieldAccessTail#getFieldAccess()
    * @see #getFieldAccessTail()
    * @generated
    */
-  EAttribute getFieldAccessTail_FieldName();
+  EAttribute getFieldAccessTail_FieldAccess();
 
   /**
    * Returns the meta object for class '{@link de.bmwgroup.openscenario.asam.openScenario.MethodInvocation <em>Method Invocation</em>}'.
@@ -5179,16 +5091,6 @@ public interface OpenScenarioPackage extends EPackage
    * @generated
    */
   EClass getMethodInvocation();
-
-  /**
-   * Returns the meta object for class '{@link de.bmwgroup.openscenario.asam.openScenario.ParameterReference <em>Parameter Reference</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Parameter Reference</em>'.
-   * @see de.bmwgroup.openscenario.asam.openScenario.ParameterReference
-   * @generated
-   */
-  EClass getParameterReference();
 
   /**
    * Returns the meta object for class '{@link de.bmwgroup.openscenario.asam.openScenario.PrimaryExp <em>Primary Exp</em>}'.
@@ -6002,12 +5904,12 @@ public interface OpenScenarioPackage extends EPackage
     EClass ACTION_DECLARATION = eINSTANCE.getActionDeclaration();
 
     /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Action Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute ACTION_DECLARATION__NAME = eINSTANCE.getActionDeclaration_Name();
+    EAttribute ACTION_DECLARATION__ACTION_NAME = eINSTANCE.getActionDeclaration_ActionName();
 
     /**
      * The meta object literal for the '<em><b>Base Action Name</b></em>' attribute feature.
@@ -6052,12 +5954,12 @@ public interface OpenScenarioPackage extends EPackage
     EClass ACTOR_DECLARATION = eINSTANCE.getActorDeclaration();
 
     /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Actor Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute ACTOR_DECLARATION__NAME = eINSTANCE.getActorDeclaration_Name();
+    EAttribute ACTOR_DECLARATION__ACTOR_NAME = eINSTANCE.getActorDeclaration_ActorName();
 
     /**
      * The meta object literal for the '<em><b>Base Actor Name</b></em>' attribute feature.
@@ -6102,12 +6004,12 @@ public interface OpenScenarioPackage extends EPackage
     EClass STRUCT_DECLARATION = eINSTANCE.getStructDeclaration();
 
     /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Struct Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute STRUCT_DECLARATION__NAME = eINSTANCE.getStructDeclaration_Name();
+    EAttribute STRUCT_DECLARATION__STRUCT_NAME = eINSTANCE.getStructDeclaration_StructName();
 
     /**
      * The meta object literal for the '<em><b>Base Struct Name</b></em>' attribute feature.
@@ -6152,12 +6054,12 @@ public interface OpenScenarioPackage extends EPackage
     EClass SCENARIO_DECLARATION = eINSTANCE.getScenarioDeclaration();
 
     /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Scenario Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute SCENARIO_DECLARATION__NAME = eINSTANCE.getScenarioDeclaration_Name();
+    EAttribute SCENARIO_DECLARATION__SCENARIO_NAME = eINSTANCE.getScenarioDeclaration_ScenarioName();
 
     /**
      * The meta object literal for the '<em><b>Base Scenario Name</b></em>' attribute feature.
@@ -7116,14 +7018,6 @@ public interface OpenScenarioPackage extends EPackage
     EReference POSTFIX_EXP__ARGUMENT_LIST = eINSTANCE.getPostfixExp_ArgumentList();
 
     /**
-     * The meta object literal for the '<em><b>Field Name</b></em>' attribute list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute POSTFIX_EXP__FIELD_NAME = eINSTANCE.getPostfixExp_FieldName();
-
-    /**
      * The meta object literal for the '{@link de.bmwgroup.openscenario.asam.openScenario.impl.PostfixExpTailImpl <em>Postfix Exp Tail</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -7170,24 +7064,6 @@ public interface OpenScenarioPackage extends EPackage
     EAttribute TYPE_TEST_TAIL__TYPE_DECLARATOR = eINSTANCE.getTypeTestTail_TypeDeclarator();
 
     /**
-     * The meta object literal for the '{@link de.bmwgroup.openscenario.asam.openScenario.impl.ElementAccessTailImpl <em>Element Access Tail</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see de.bmwgroup.openscenario.asam.openScenario.impl.ElementAccessTailImpl
-     * @see de.bmwgroup.openscenario.asam.openScenario.impl.OpenScenarioPackageImpl#getElementAccessTail()
-     * @generated
-     */
-    EClass ELEMENT_ACCESS_TAIL = eINSTANCE.getElementAccessTail();
-
-    /**
-     * The meta object literal for the '<em><b>Expression</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference ELEMENT_ACCESS_TAIL__EXPRESSION = eINSTANCE.getElementAccessTail_Expression();
-
-    /**
      * The meta object literal for the '{@link de.bmwgroup.openscenario.asam.openScenario.impl.FieldAccessTailImpl <em>Field Access Tail</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -7198,12 +7074,12 @@ public interface OpenScenarioPackage extends EPackage
     EClass FIELD_ACCESS_TAIL = eINSTANCE.getFieldAccessTail();
 
     /**
-     * The meta object literal for the '<em><b>Field Name</b></em>' attribute list feature.
+     * The meta object literal for the '<em><b>Field Access</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute FIELD_ACCESS_TAIL__FIELD_NAME = eINSTANCE.getFieldAccessTail_FieldName();
+    EAttribute FIELD_ACCESS_TAIL__FIELD_ACCESS = eINSTANCE.getFieldAccessTail_FieldAccess();
 
     /**
      * The meta object literal for the '{@link de.bmwgroup.openscenario.asam.openScenario.impl.MethodInvocationImpl <em>Method Invocation</em>}' class.
@@ -7214,16 +7090,6 @@ public interface OpenScenarioPackage extends EPackage
      * @generated
      */
     EClass METHOD_INVOCATION = eINSTANCE.getMethodInvocation();
-
-    /**
-     * The meta object literal for the '{@link de.bmwgroup.openscenario.asam.openScenario.impl.ParameterReferenceImpl <em>Parameter Reference</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see de.bmwgroup.openscenario.asam.openScenario.impl.ParameterReferenceImpl
-     * @see de.bmwgroup.openscenario.asam.openScenario.impl.OpenScenarioPackageImpl#getParameterReference()
-     * @generated
-     */
-    EClass PARAMETER_REFERENCE = eINSTANCE.getParameterReference();
 
     /**
      * The meta object literal for the '{@link de.bmwgroup.openscenario.asam.openScenario.impl.PrimaryExpImpl <em>Primary Exp</em>}' class.

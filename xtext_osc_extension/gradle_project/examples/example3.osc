@@ -8,9 +8,9 @@ scenario elk:
     gvt: vehicle
     dut: vehicle
     routeToFollow: route with:
-        #remove_default(gvt.as(int).is(string)[i](a).route.is(float).drive)
+        remove_default(gvt.as(int).is(string).route.is(float).drive)
         keep(gvt)
-
+        
     do parallel:
         gvt.dut() with:
             along(route: routeToFollow, distance: '''"e"''')

@@ -132,10 +132,8 @@ public class OpenScenarioFactoryImpl extends EFactoryImpl implements OpenScenari
       case OpenScenarioPackage.POSTFIX_EXP_TAIL: return createPostfixExpTail();
       case OpenScenarioPackage.CAST_EXP_TAIL: return createCastExpTail();
       case OpenScenarioPackage.TYPE_TEST_TAIL: return createTypeTestTail();
-      case OpenScenarioPackage.ELEMENT_ACCESS_TAIL: return createElementAccessTail();
       case OpenScenarioPackage.FIELD_ACCESS_TAIL: return createFieldAccessTail();
       case OpenScenarioPackage.METHOD_INVOCATION: return createMethodInvocation();
-      case OpenScenarioPackage.PARAMETER_REFERENCE: return createParameterReference();
       case OpenScenarioPackage.PRIMARY_EXP: return createPrimaryExp();
       case OpenScenarioPackage.VALUE_EXP: return createValueExp();
       case OpenScenarioPackage.PHYSICAL_TYPE: return createPhysicalType();
@@ -962,18 +960,6 @@ public class OpenScenarioFactoryImpl extends EFactoryImpl implements OpenScenari
    * @generated
    */
   @Override
-  public ElementAccessTail createElementAccessTail()
-  {
-    ElementAccessTailImpl elementAccessTail = new ElementAccessTailImpl();
-    return elementAccessTail;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public FieldAccessTail createFieldAccessTail()
   {
     FieldAccessTailImpl fieldAccessTail = new FieldAccessTailImpl();
@@ -990,18 +976,6 @@ public class OpenScenarioFactoryImpl extends EFactoryImpl implements OpenScenari
   {
     MethodInvocationImpl methodInvocation = new MethodInvocationImpl();
     return methodInvocation;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public ParameterReference createParameterReference()
-  {
-    ParameterReferenceImpl parameterReference = new ParameterReferenceImpl();
-    return parameterReference;
   }
 
   /**

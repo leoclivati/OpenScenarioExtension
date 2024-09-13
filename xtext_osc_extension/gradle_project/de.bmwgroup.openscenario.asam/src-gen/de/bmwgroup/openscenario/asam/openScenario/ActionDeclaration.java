@@ -14,7 +14,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link de.bmwgroup.openscenario.asam.openScenario.ActionDeclaration#getName <em>Name</em>}</li>
+ *   <li>{@link de.bmwgroup.openscenario.asam.openScenario.ActionDeclaration#getActionName <em>Action Name</em>}</li>
  *   <li>{@link de.bmwgroup.openscenario.asam.openScenario.ActionDeclaration#getBaseActionName <em>Base Action Name</em>}</li>
  *   <li>{@link de.bmwgroup.openscenario.asam.openScenario.ActionDeclaration#getFieldName <em>Field Name</em>}</li>
  *   <li>{@link de.bmwgroup.openscenario.asam.openScenario.ActionDeclaration#getEnumReference <em>Enum Reference</em>}</li>
@@ -28,26 +28,26 @@ import org.eclipse.emf.common.util.EList;
 public interface ActionDeclaration extends OscDeclaration
 {
   /**
-   * Returns the value of the '<em><b>Name</b></em>' attribute.
+   * Returns the value of the '<em><b>Action Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Name</em>' attribute.
-   * @see #setName(String)
-   * @see de.bmwgroup.openscenario.asam.openScenario.OpenScenarioPackage#getActionDeclaration_Name()
+   * @return the value of the '<em>Action Name</em>' attribute.
+   * @see #setActionName(String)
+   * @see de.bmwgroup.openscenario.asam.openScenario.OpenScenarioPackage#getActionDeclaration_ActionName()
    * @model
    * @generated
    */
-  String getName();
+  String getActionName();
 
   /**
-   * Sets the value of the '{@link de.bmwgroup.openscenario.asam.openScenario.ActionDeclaration#getName <em>Name</em>}' attribute.
+   * Sets the value of the '{@link de.bmwgroup.openscenario.asam.openScenario.ActionDeclaration#getActionName <em>Action Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Name</em>' attribute.
-   * @see #getName()
+   * @param value the new value of the '<em>Action Name</em>' attribute.
+   * @see #getActionName()
    * @generated
    */
-  void setName(String value);
+  void setActionName(String value);
 
   /**
    * Returns the value of the '<em><b>Base Action Name</b></em>' attribute.

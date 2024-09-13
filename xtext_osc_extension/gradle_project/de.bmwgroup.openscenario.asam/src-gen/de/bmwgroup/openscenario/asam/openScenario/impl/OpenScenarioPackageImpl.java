@@ -21,7 +21,6 @@ import de.bmwgroup.openscenario.asam.openScenario.CoverageDeclaration;
 import de.bmwgroup.openscenario.asam.openScenario.DoDirective;
 import de.bmwgroup.openscenario.asam.openScenario.DoDirectiveMember;
 import de.bmwgroup.openscenario.asam.openScenario.ElapsedExpression;
-import de.bmwgroup.openscenario.asam.openScenario.ElementAccessTail;
 import de.bmwgroup.openscenario.asam.openScenario.EmitDirective;
 import de.bmwgroup.openscenario.asam.openScenario.EnumDeclaration;
 import de.bmwgroup.openscenario.asam.openScenario.EnumMemberDeclaration;
@@ -57,7 +56,6 @@ import de.bmwgroup.openscenario.asam.openScenario.OpenScenarioPackage;
 import de.bmwgroup.openscenario.asam.openScenario.OscDeclaration;
 import de.bmwgroup.openscenario.asam.openScenario.OscFile;
 import de.bmwgroup.openscenario.asam.openScenario.ParameterDeclaration;
-import de.bmwgroup.openscenario.asam.openScenario.ParameterReference;
 import de.bmwgroup.openscenario.asam.openScenario.ParameterWithDeclaration;
 import de.bmwgroup.openscenario.asam.openScenario.PhysicalType;
 import de.bmwgroup.openscenario.asam.openScenario.PhysicalTypeDeclaration;
@@ -577,13 +575,6 @@ public class OpenScenarioPackageImpl extends EPackageImpl implements OpenScenari
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass elementAccessTailEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   private EClass fieldAccessTailEClass = null;
 
   /**
@@ -592,13 +583,6 @@ public class OpenScenarioPackageImpl extends EPackageImpl implements OpenScenari
    * @generated
    */
   private EClass methodInvocationEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass parameterReferenceEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -1373,7 +1357,7 @@ public class OpenScenarioPackageImpl extends EPackageImpl implements OpenScenari
    * @generated
    */
   @Override
-  public EAttribute getActionDeclaration_Name()
+  public EAttribute getActionDeclaration_ActionName()
   {
     return (EAttribute)actionDeclarationEClass.getEStructuralFeatures().get(0);
   }
@@ -1439,7 +1423,7 @@ public class OpenScenarioPackageImpl extends EPackageImpl implements OpenScenari
    * @generated
    */
   @Override
-  public EAttribute getActorDeclaration_Name()
+  public EAttribute getActorDeclaration_ActorName()
   {
     return (EAttribute)actorDeclarationEClass.getEStructuralFeatures().get(0);
   }
@@ -1505,7 +1489,7 @@ public class OpenScenarioPackageImpl extends EPackageImpl implements OpenScenari
    * @generated
    */
   @Override
-  public EAttribute getStructDeclaration_Name()
+  public EAttribute getStructDeclaration_StructName()
   {
     return (EAttribute)structDeclarationEClass.getEStructuralFeatures().get(0);
   }
@@ -1571,7 +1555,7 @@ public class OpenScenarioPackageImpl extends EPackageImpl implements OpenScenari
    * @generated
    */
   @Override
-  public EAttribute getScenarioDeclaration_Name()
+  public EAttribute getScenarioDeclaration_ScenarioName()
   {
     return (EAttribute)scenarioDeclarationEClass.getEStructuralFeatures().get(0);
   }
@@ -2792,17 +2776,6 @@ public class OpenScenarioPackageImpl extends EPackageImpl implements OpenScenari
    * @generated
    */
   @Override
-  public EAttribute getPostfixExp_FieldName()
-  {
-    return (EAttribute)postfixExpEClass.getEStructuralFeatures().get(3);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public EClass getPostfixExpTail()
   {
     return postfixExpTailEClass;
@@ -2858,28 +2831,6 @@ public class OpenScenarioPackageImpl extends EPackageImpl implements OpenScenari
    * @generated
    */
   @Override
-  public EClass getElementAccessTail()
-  {
-    return elementAccessTailEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getElementAccessTail_Expression()
-  {
-    return (EReference)elementAccessTailEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public EClass getFieldAccessTail()
   {
     return fieldAccessTailEClass;
@@ -2891,7 +2842,7 @@ public class OpenScenarioPackageImpl extends EPackageImpl implements OpenScenari
    * @generated
    */
   @Override
-  public EAttribute getFieldAccessTail_FieldName()
+  public EAttribute getFieldAccessTail_FieldAccess()
   {
     return (EAttribute)fieldAccessTailEClass.getEStructuralFeatures().get(0);
   }
@@ -2905,17 +2856,6 @@ public class OpenScenarioPackageImpl extends EPackageImpl implements OpenScenari
   public EClass getMethodInvocation()
   {
     return methodInvocationEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EClass getParameterReference()
-  {
-    return parameterReferenceEClass;
   }
 
   /**
@@ -3325,28 +3265,28 @@ public class OpenScenarioPackageImpl extends EPackageImpl implements OpenScenari
     createEReference(modifierDeclarationEClass, MODIFIER_DECLARATION__BEHAVIOR_SPECIFICATION);
 
     actionDeclarationEClass = createEClass(ACTION_DECLARATION);
-    createEAttribute(actionDeclarationEClass, ACTION_DECLARATION__NAME);
+    createEAttribute(actionDeclarationEClass, ACTION_DECLARATION__ACTION_NAME);
     createEAttribute(actionDeclarationEClass, ACTION_DECLARATION__BASE_ACTION_NAME);
     createEAttribute(actionDeclarationEClass, ACTION_DECLARATION__FIELD_NAME);
     createEReference(actionDeclarationEClass, ACTION_DECLARATION__ENUM_REFERENCE);
     createEReference(actionDeclarationEClass, ACTION_DECLARATION__ACTION_MEMBER_DECL);
 
     actorDeclarationEClass = createEClass(ACTOR_DECLARATION);
-    createEAttribute(actorDeclarationEClass, ACTOR_DECLARATION__NAME);
+    createEAttribute(actorDeclarationEClass, ACTOR_DECLARATION__ACTOR_NAME);
     createEAttribute(actorDeclarationEClass, ACTOR_DECLARATION__BASE_ACTOR_NAME);
     createEAttribute(actorDeclarationEClass, ACTOR_DECLARATION__FIELD_NAME);
     createEReference(actorDeclarationEClass, ACTOR_DECLARATION__ENUM_REFERENCE);
     createEReference(actorDeclarationEClass, ACTOR_DECLARATION__ACTOR_MEMBER_DECL);
 
     structDeclarationEClass = createEClass(STRUCT_DECLARATION);
-    createEAttribute(structDeclarationEClass, STRUCT_DECLARATION__NAME);
+    createEAttribute(structDeclarationEClass, STRUCT_DECLARATION__STRUCT_NAME);
     createEAttribute(structDeclarationEClass, STRUCT_DECLARATION__BASE_STRUCT_NAME);
     createEAttribute(structDeclarationEClass, STRUCT_DECLARATION__FIELD_NAME);
     createEReference(structDeclarationEClass, STRUCT_DECLARATION__ENUM_REFERENCE);
     createEReference(structDeclarationEClass, STRUCT_DECLARATION__STRUCT_MEMBER_DECL);
 
     scenarioDeclarationEClass = createEClass(SCENARIO_DECLARATION);
-    createEAttribute(scenarioDeclarationEClass, SCENARIO_DECLARATION__NAME);
+    createEAttribute(scenarioDeclarationEClass, SCENARIO_DECLARATION__SCENARIO_NAME);
     createEAttribute(scenarioDeclarationEClass, SCENARIO_DECLARATION__BASE_SCENARIO_NAME);
     createEAttribute(scenarioDeclarationEClass, SCENARIO_DECLARATION__FIELD_NAME);
     createEReference(scenarioDeclarationEClass, SCENARIO_DECLARATION__ENUM_REFERENCE);
@@ -3495,7 +3435,6 @@ public class OpenScenarioPackageImpl extends EPackageImpl implements OpenScenari
     createEReference(postfixExpEClass, POSTFIX_EXP__PRIMARY_EXP);
     createEReference(postfixExpEClass, POSTFIX_EXP__TAIL);
     createEReference(postfixExpEClass, POSTFIX_EXP__ARGUMENT_LIST);
-    createEAttribute(postfixExpEClass, POSTFIX_EXP__FIELD_NAME);
 
     postfixExpTailEClass = createEClass(POSTFIX_EXP_TAIL);
 
@@ -3505,15 +3444,10 @@ public class OpenScenarioPackageImpl extends EPackageImpl implements OpenScenari
     typeTestTailEClass = createEClass(TYPE_TEST_TAIL);
     createEAttribute(typeTestTailEClass, TYPE_TEST_TAIL__TYPE_DECLARATOR);
 
-    elementAccessTailEClass = createEClass(ELEMENT_ACCESS_TAIL);
-    createEReference(elementAccessTailEClass, ELEMENT_ACCESS_TAIL__EXPRESSION);
-
     fieldAccessTailEClass = createEClass(FIELD_ACCESS_TAIL);
-    createEAttribute(fieldAccessTailEClass, FIELD_ACCESS_TAIL__FIELD_NAME);
+    createEAttribute(fieldAccessTailEClass, FIELD_ACCESS_TAIL__FIELD_ACCESS);
 
     methodInvocationEClass = createEClass(METHOD_INVOCATION);
-
-    parameterReferenceEClass = createEClass(PARAMETER_REFERENCE);
 
     primaryExpEClass = createEClass(PRIMARY_EXP);
 
@@ -3621,7 +3555,6 @@ public class OpenScenarioPackageImpl extends EPackageImpl implements OpenScenari
     removeDefaultDeclarationEClass.getESuperTypes().add(this.getConstraintDeclaration());
     untilDirectiveEClass.getESuperTypes().add(this.getBehaviorWithMember());
     postfixExpEClass.getESuperTypes().add(this.getMethodInvocation());
-    postfixExpEClass.getESuperTypes().add(this.getParameterReference());
     postfixExpEClass.getESuperTypes().add(this.getFactor());
     castExpTailEClass.getESuperTypes().add(this.getPostfixExpTail());
     typeTestTailEClass.getESuperTypes().add(this.getPostfixExpTail());
@@ -3717,28 +3650,28 @@ public class OpenScenarioPackageImpl extends EPackageImpl implements OpenScenari
     initEReference(getModifierDeclaration_BehaviorSpecification(), this.getOnDirective(), null, "BehaviorSpecification", null, 0, -1, ModifierDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(actionDeclarationEClass, ActionDeclaration.class, "ActionDeclaration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getActionDeclaration_Name(), ecorePackage.getEString(), "name", null, 0, 1, ActionDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getActionDeclaration_ActionName(), ecorePackage.getEString(), "actionName", null, 0, 1, ActionDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getActionDeclaration_BaseActionName(), ecorePackage.getEString(), "baseActionName", null, 0, 1, ActionDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getActionDeclaration_FieldName(), ecorePackage.getEString(), "fieldName", null, 0, 1, ActionDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getActionDeclaration_EnumReference(), this.getEnumValueReference(), null, "enumReference", null, 0, 1, ActionDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getActionDeclaration_ActionMemberDecl(), this.getMemberDeclaration(), null, "ActionMemberDecl", null, 0, -1, ActionDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(actorDeclarationEClass, ActorDeclaration.class, "ActorDeclaration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getActorDeclaration_Name(), ecorePackage.getEString(), "name", null, 0, 1, ActorDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getActorDeclaration_ActorName(), ecorePackage.getEString(), "actorName", null, 0, 1, ActorDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getActorDeclaration_BaseActorName(), ecorePackage.getEString(), "baseActorName", null, 0, 1, ActorDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getActorDeclaration_FieldName(), ecorePackage.getEString(), "fieldName", null, 0, 1, ActorDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getActorDeclaration_EnumReference(), this.getEnumValueReference(), null, "enumReference", null, 0, 1, ActorDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getActorDeclaration_ActorMemberDecl(), this.getMemberDeclaration(), null, "ActorMemberDecl", null, 0, -1, ActorDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(structDeclarationEClass, StructDeclaration.class, "StructDeclaration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getStructDeclaration_Name(), ecorePackage.getEString(), "name", null, 0, 1, StructDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getStructDeclaration_StructName(), ecorePackage.getEString(), "structName", null, 0, 1, StructDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getStructDeclaration_BaseStructName(), ecorePackage.getEString(), "baseStructName", null, 0, 1, StructDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getStructDeclaration_FieldName(), ecorePackage.getEString(), "fieldName", null, 0, 1, StructDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getStructDeclaration_EnumReference(), this.getEnumValueReference(), null, "enumReference", null, 0, 1, StructDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getStructDeclaration_StructMemberDecl(), this.getMemberDeclaration(), null, "StructMemberDecl", null, 0, -1, StructDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(scenarioDeclarationEClass, ScenarioDeclaration.class, "ScenarioDeclaration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getScenarioDeclaration_Name(), ecorePackage.getEString(), "name", null, 0, 1, ScenarioDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getScenarioDeclaration_ScenarioName(), ecorePackage.getEString(), "scenarioName", null, 0, 1, ScenarioDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getScenarioDeclaration_BaseScenarioName(), ecorePackage.getEString(), "baseScenarioName", null, 0, 1, ScenarioDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getScenarioDeclaration_FieldName(), ecorePackage.getEString(), "fieldName", null, 0, 1, ScenarioDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getScenarioDeclaration_EnumReference(), this.getEnumValueReference(), null, "enumReference", null, 0, 1, ScenarioDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3861,7 +3794,7 @@ public class OpenScenarioPackageImpl extends EPackageImpl implements OpenScenari
     initEReference(getKeepConstraintDeclaration_ConstraintExpression(), this.getExpression(), null, "constraintExpression", null, 0, 1, KeepConstraintDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(removeDefaultDeclarationEClass, RemoveDefaultDeclaration.class, "RemoveDefaultDeclaration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getRemoveDefaultDeclaration_ParameterReference(), this.getParameterReference(), null, "parameterReference", null, 0, 1, RemoveDefaultDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRemoveDefaultDeclaration_ParameterReference(), this.getPostfixExp(), null, "parameterReference", null, 0, 1, RemoveDefaultDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(untilDirectiveEClass, UntilDirective.class, "UntilDirective", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getUntilDirective_EventSpecification(), this.getEventSpecification(), null, "eventSpecification", null, 0, 1, UntilDirective.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3887,7 +3820,6 @@ public class OpenScenarioPackageImpl extends EPackageImpl implements OpenScenari
     initEReference(getPostfixExp_PrimaryExp(), this.getPrimaryExp(), null, "primaryExp", null, 0, 1, PostfixExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getPostfixExp_Tail(), this.getPostfixExpTail(), null, "tail", null, 0, -1, PostfixExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getPostfixExp_ArgumentList(), this.getArgumentList(), null, "argumentList", null, 0, -1, PostfixExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getPostfixExp_FieldName(), ecorePackage.getEString(), "fieldName", null, 0, -1, PostfixExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(postfixExpTailEClass, PostfixExpTail.class, "PostfixExpTail", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -3897,15 +3829,10 @@ public class OpenScenarioPackageImpl extends EPackageImpl implements OpenScenari
     initEClass(typeTestTailEClass, TypeTestTail.class, "TypeTestTail", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getTypeTestTail_TypeDeclarator(), ecorePackage.getEString(), "typeDeclarator", null, 0, -1, TypeTestTail.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(elementAccessTailEClass, ElementAccessTail.class, "ElementAccessTail", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getElementAccessTail_Expression(), this.getExpression(), null, "expression", null, 0, -1, ElementAccessTail.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
     initEClass(fieldAccessTailEClass, FieldAccessTail.class, "FieldAccessTail", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getFieldAccessTail_FieldName(), ecorePackage.getEString(), "fieldName", null, 0, -1, FieldAccessTail.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getFieldAccessTail_FieldAccess(), ecorePackage.getEString(), "fieldAccess", null, 0, 1, FieldAccessTail.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(methodInvocationEClass, MethodInvocation.class, "MethodInvocation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-    initEClass(parameterReferenceEClass, ParameterReference.class, "ParameterReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(primaryExpEClass, PrimaryExp.class, "PrimaryExp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

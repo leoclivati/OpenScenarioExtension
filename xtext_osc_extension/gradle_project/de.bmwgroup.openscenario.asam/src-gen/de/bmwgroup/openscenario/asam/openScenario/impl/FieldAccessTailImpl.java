@@ -6,13 +6,11 @@ package de.bmwgroup.openscenario.asam.openScenario.impl;
 import de.bmwgroup.openscenario.asam.openScenario.FieldAccessTail;
 import de.bmwgroup.openscenario.asam.openScenario.OpenScenarioPackage;
 
-import java.util.Collection;
-
-import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
 
-import org.eclipse.emf.ecore.util.EDataTypeEList;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -22,7 +20,7 @@ import org.eclipse.emf.ecore.util.EDataTypeEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link de.bmwgroup.openscenario.asam.openScenario.impl.FieldAccessTailImpl#getFieldName <em>Field Name</em>}</li>
+ *   <li>{@link de.bmwgroup.openscenario.asam.openScenario.impl.FieldAccessTailImpl#getFieldAccess <em>Field Access</em>}</li>
  * </ul>
  *
  * @generated
@@ -30,14 +28,24 @@ import org.eclipse.emf.ecore.util.EDataTypeEList;
 public class FieldAccessTailImpl extends PostfixExpTailImpl implements FieldAccessTail
 {
   /**
-   * The cached value of the '{@link #getFieldName() <em>Field Name</em>}' attribute list.
+   * The default value of the '{@link #getFieldAccess() <em>Field Access</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getFieldName()
+   * @see #getFieldAccess()
    * @generated
    * @ordered
    */
-  protected EList<String> fieldName;
+  protected static final String FIELD_ACCESS_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getFieldAccess() <em>Field Access</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getFieldAccess()
+   * @generated
+   * @ordered
+   */
+  protected String fieldAccess = FIELD_ACCESS_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -66,13 +74,23 @@ public class FieldAccessTailImpl extends PostfixExpTailImpl implements FieldAcce
    * @generated
    */
   @Override
-  public EList<String> getFieldName()
+  public String getFieldAccess()
   {
-    if (fieldName == null)
-    {
-      fieldName = new EDataTypeEList<String>(String.class, this, OpenScenarioPackage.FIELD_ACCESS_TAIL__FIELD_NAME);
-    }
-    return fieldName;
+    return fieldAccess;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setFieldAccess(String newFieldAccess)
+  {
+    String oldFieldAccess = fieldAccess;
+    fieldAccess = newFieldAccess;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, OpenScenarioPackage.FIELD_ACCESS_TAIL__FIELD_ACCESS, oldFieldAccess, fieldAccess));
   }
 
   /**
@@ -85,8 +103,8 @@ public class FieldAccessTailImpl extends PostfixExpTailImpl implements FieldAcce
   {
     switch (featureID)
     {
-      case OpenScenarioPackage.FIELD_ACCESS_TAIL__FIELD_NAME:
-        return getFieldName();
+      case OpenScenarioPackage.FIELD_ACCESS_TAIL__FIELD_ACCESS:
+        return getFieldAccess();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -96,15 +114,13 @@ public class FieldAccessTailImpl extends PostfixExpTailImpl implements FieldAcce
    * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
-      case OpenScenarioPackage.FIELD_ACCESS_TAIL__FIELD_NAME:
-        getFieldName().clear();
-        getFieldName().addAll((Collection<? extends String>)newValue);
+      case OpenScenarioPackage.FIELD_ACCESS_TAIL__FIELD_ACCESS:
+        setFieldAccess((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -120,8 +136,8 @@ public class FieldAccessTailImpl extends PostfixExpTailImpl implements FieldAcce
   {
     switch (featureID)
     {
-      case OpenScenarioPackage.FIELD_ACCESS_TAIL__FIELD_NAME:
-        getFieldName().clear();
+      case OpenScenarioPackage.FIELD_ACCESS_TAIL__FIELD_ACCESS:
+        setFieldAccess(FIELD_ACCESS_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -137,8 +153,8 @@ public class FieldAccessTailImpl extends PostfixExpTailImpl implements FieldAcce
   {
     switch (featureID)
     {
-      case OpenScenarioPackage.FIELD_ACCESS_TAIL__FIELD_NAME:
-        return fieldName != null && !fieldName.isEmpty();
+      case OpenScenarioPackage.FIELD_ACCESS_TAIL__FIELD_ACCESS:
+        return FIELD_ACCESS_EDEFAULT == null ? fieldAccess != null : !FIELD_ACCESS_EDEFAULT.equals(fieldAccess);
     }
     return super.eIsSet(featureID);
   }
@@ -154,8 +170,8 @@ public class FieldAccessTailImpl extends PostfixExpTailImpl implements FieldAcce
     if (eIsProxy()) return super.toString();
 
     StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (fieldName: ");
-    result.append(fieldName);
+    result.append(" (fieldAccess: ");
+    result.append(fieldAccess);
     result.append(')');
     return result.toString();
   }

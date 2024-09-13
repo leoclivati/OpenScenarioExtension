@@ -129,10 +129,10 @@ public class OpenScenarioSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (':' BEGIN END)?
 	 *
 	 * This ambiguous syntax occurs at:
+	 *     actorName=ID (ambiguity) (rule end)
 	 *     baseActorName=ID (ambiguity) (rule end)
 	 *     enumReference=EnumValueReference ')' (ambiguity) (rule end)
 	 *     fieldName=ID '==' BOOL ')' (ambiguity) (rule end)
-	 *     name=ID (ambiguity) (rule end)
 	 
 	 * </pre>
 	 */

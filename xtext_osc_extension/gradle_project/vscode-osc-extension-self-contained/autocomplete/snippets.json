@@ -1,0 +1,106 @@
+{
+    "Do Parallel":{
+        "prefix":["do parallel"],
+        "body": ["do parallel:\n\t"]
+    },
+    "Do Serial":{
+        "prefix":["do serial"],
+        "body": ["do serial:\n\t"]
+    },
+    "Do One_Of":{
+        "prefix":["do one_of"],
+        "body": ["do one_of:\n\t"]
+    },
+    "With":{
+        "prefix":["with"],
+        "body":["with:\n\t"]
+    },
+    "Keep":{
+        "prefix":["keep"],
+        "body":["keep()"]
+    },
+    "Remove_Default":{
+        "prefix":["remove_default"],
+        "body":["remove_default()"]
+    },
+    "Until":{
+        "prefix":["until"],
+        "body":["until "]
+    },
+    "Call":{
+        "prefix":["call"],
+        "body":["call "]
+    },
+    "Emit":{
+        "prefix":["emit"],
+        "body":["emit "]
+    },
+    "Wait":{
+        "prefix":["wait"],
+        "body":["wait "]
+    },
+    "On":{
+        "prefix":["on"],
+        "body":["on "]
+    },
+    "Do":{
+        "prefix":["do"],
+        "body":["do "]
+    },
+    "Varible Declaration":{
+        "prefix":["var"],
+        "body":["var "]
+    },
+    "Sample Expression":{
+        "prefix":["sample"],
+        "body":["sample("]
+    },
+    "Every Expression":{
+        "prefix":["every"],
+        "body":["every("]
+    },
+    "Elapsed Expression":{
+        "prefix":["elapsed"],
+        "body":["elapsed("]
+    },
+    "Fall Expression":{
+        "prefix":["fall"],
+        "body":["fall("]
+    },
+    "Rise Expression":{
+        "prefix":["rise"],
+        "body":["rise("]
+    },
+    "Cover Declaration":{
+        "prefix":["cover"],
+        "body":["cover("]
+    },
+    "Record Declaration":{
+        "prefix":["record"],
+        "body":["record("]
+    },
+    "Float Type":{
+        "prefix":["float"],
+        "body":["float"]
+    },
+    "Integer Type":{
+        "prefix":["int"],
+        "body":["int"]
+    },
+    "Unsigned Integer Type":{
+        "prefix":["uint"],
+        "body":["uint"]
+    },
+    "Boolean Type":{
+        "prefix":["bool"],
+        "body":["bool"]
+    },
+    "String Type":{
+        "prefix":["string"],
+        "body":["string"]
+    }
+
+
+
+    
+}

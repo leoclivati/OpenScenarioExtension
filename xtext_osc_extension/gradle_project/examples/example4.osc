@@ -1,0 +1,4 @@
+scenario elk:
+    do parallel:
+        gvt.dut() with:
+            along()

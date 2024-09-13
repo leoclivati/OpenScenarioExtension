@@ -14,7 +14,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link de.bmwgroup.openscenario.asam.openScenario.StructDeclaration#getName <em>Name</em>}</li>
+ *   <li>{@link de.bmwgroup.openscenario.asam.openScenario.StructDeclaration#getStructName <em>Struct Name</em>}</li>
  *   <li>{@link de.bmwgroup.openscenario.asam.openScenario.StructDeclaration#getBaseStructName <em>Base Struct Name</em>}</li>
  *   <li>{@link de.bmwgroup.openscenario.asam.openScenario.StructDeclaration#getFieldName <em>Field Name</em>}</li>
  *   <li>{@link de.bmwgroup.openscenario.asam.openScenario.StructDeclaration#getEnumReference <em>Enum Reference</em>}</li>
@@ -28,26 +28,26 @@ import org.eclipse.emf.common.util.EList;
 public interface StructDeclaration extends OscDeclaration
 {
   /**
-   * Returns the value of the '<em><b>Name</b></em>' attribute.
+   * Returns the value of the '<em><b>Struct Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Name</em>' attribute.
-   * @see #setName(String)
-   * @see de.bmwgroup.openscenario.asam.openScenario.OpenScenarioPackage#getStructDeclaration_Name()
+   * @return the value of the '<em>Struct Name</em>' attribute.
+   * @see #setStructName(String)
+   * @see de.bmwgroup.openscenario.asam.openScenario.OpenScenarioPackage#getStructDeclaration_StructName()
    * @model
    * @generated
    */
-  String getName();
+  String getStructName();
 
   /**
-   * Sets the value of the '{@link de.bmwgroup.openscenario.asam.openScenario.StructDeclaration#getName <em>Name</em>}' attribute.
+   * Sets the value of the '{@link de.bmwgroup.openscenario.asam.openScenario.StructDeclaration#getStructName <em>Struct Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Name</em>' attribute.
-   * @see #getName()
+   * @param value the new value of the '<em>Struct Name</em>' attribute.
+   * @see #getStructName()
    * @generated
    */
-  void setName(String value);
+  void setStructName(String value);
 
   /**
    * Returns the value of the '<em><b>Base Struct Name</b></em>' attribute.

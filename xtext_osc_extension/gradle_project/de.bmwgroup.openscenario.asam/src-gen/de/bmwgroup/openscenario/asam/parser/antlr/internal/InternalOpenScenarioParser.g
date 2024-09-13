@@ -1923,9 +1923,9 @@ ruleActionDeclaration returns [EObject current=null]
 		}
 		(
 			(
-				lv_name_1_0=RULE_ID
+				lv_actionName_1_0=RULE_ID
 				{
-					newLeafNode(lv_name_1_0, grammarAccess.getActionDeclarationAccess().getNameIDTerminalRuleCall_1_0());
+					newLeafNode(lv_actionName_1_0, grammarAccess.getActionDeclarationAccess().getActionNameIDTerminalRuleCall_1_0());
 				}
 				{
 					if ($current==null) {
@@ -1933,8 +1933,8 @@ ruleActionDeclaration returns [EObject current=null]
 					}
 					setWithLastConsumed(
 						$current,
-						"name",
-						lv_name_1_0,
+						"actionName",
+						lv_actionName_1_0,
 						"org.eclipse.xtext.common.Terminals.ID");
 				}
 			)
@@ -2077,9 +2077,9 @@ ruleActorDeclaration returns [EObject current=null]
 		}
 		(
 			(
-				lv_name_1_0=RULE_ID
+				lv_actorName_1_0=RULE_ID
 				{
-					newLeafNode(lv_name_1_0, grammarAccess.getActorDeclarationAccess().getNameIDTerminalRuleCall_1_0());
+					newLeafNode(lv_actorName_1_0, grammarAccess.getActorDeclarationAccess().getActorNameIDTerminalRuleCall_1_0());
 				}
 				{
 					if ($current==null) {
@@ -2087,8 +2087,8 @@ ruleActorDeclaration returns [EObject current=null]
 					}
 					setWithLastConsumed(
 						$current,
-						"name",
-						lv_name_1_0,
+						"actorName",
+						lv_actorName_1_0,
 						"org.eclipse.xtext.common.Terminals.ID");
 				}
 			)
@@ -2233,9 +2233,9 @@ ruleStructDeclaration returns [EObject current=null]
 		}
 		(
 			(
-				lv_name_1_0=RULE_ID
+				lv_structName_1_0=RULE_ID
 				{
-					newLeafNode(lv_name_1_0, grammarAccess.getStructDeclarationAccess().getNameIDTerminalRuleCall_1_0());
+					newLeafNode(lv_structName_1_0, grammarAccess.getStructDeclarationAccess().getStructNameIDTerminalRuleCall_1_0());
 				}
 				{
 					if ($current==null) {
@@ -2243,8 +2243,8 @@ ruleStructDeclaration returns [EObject current=null]
 					}
 					setWithLastConsumed(
 						$current,
-						"name",
-						lv_name_1_0,
+						"structName",
+						lv_structName_1_0,
 						"org.eclipse.xtext.common.Terminals.ID");
 				}
 			)
@@ -2387,9 +2387,9 @@ ruleScenarioDeclaration returns [EObject current=null]
 		}
 		(
 			(
-				lv_name_1_0=RULE_ID
+				lv_scenarioName_1_0=RULE_ID
 				{
-					newLeafNode(lv_name_1_0, grammarAccess.getScenarioDeclarationAccess().getNameIDTerminalRuleCall_1_0());
+					newLeafNode(lv_scenarioName_1_0, grammarAccess.getScenarioDeclarationAccess().getScenarioNameIDTerminalRuleCall_1_0());
 				}
 				{
 					if ($current==null) {
@@ -2397,8 +2397,8 @@ ruleScenarioDeclaration returns [EObject current=null]
 					}
 					setWithLastConsumed(
 						$current,
-						"name",
-						lv_name_1_0,
+						"scenarioName",
+						lv_scenarioName_1_0,
 						"org.eclipse.xtext.common.Terminals.ID");
 				}
 			)
@@ -4813,9 +4813,9 @@ ruleRemoveDefaultDeclaration returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getRemoveDefaultDeclarationAccess().getParameterReferenceParameterReferenceParserRuleCall_2_0());
+					newCompositeNode(grammarAccess.getRemoveDefaultDeclarationAccess().getParameterReferencePostfixExpParserRuleCall_2_0());
 				}
-				lv_parameterReference_2_0=ruleParameterReference
+				lv_parameterReference_2_0=rulePostfixExp
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getRemoveDefaultDeclarationRule());
@@ -4824,7 +4824,7 @@ ruleRemoveDefaultDeclaration returns [EObject current=null]
 						$current,
 						"parameterReference",
 						lv_parameterReference_2_0,
-						"de.bmwgroup.openscenario.asam.OpenScenario.ParameterReference");
+						"de.bmwgroup.openscenario.asam.OpenScenario.PostfixExp");
 					afterParserOrEnumRuleCall();
 				}
 			)
@@ -5491,18 +5491,18 @@ ruleFieldAccessTail returns [EObject current=null]
 		}
 		(
 			(
-				lv_fieldName_1_0=RULE_ID
+				lv_fieldAccess_1_0=RULE_ID
 				{
-					newLeafNode(lv_fieldName_1_0, grammarAccess.getFieldAccessTailAccess().getFieldNameIDTerminalRuleCall_1_0());
+					newLeafNode(lv_fieldAccess_1_0, grammarAccess.getFieldAccessTailAccess().getFieldAccessIDTerminalRuleCall_1_0());
 				}
 				{
 					if ($current==null) {
 						$current = createModelElement(grammarAccess.getFieldAccessTailRule());
 					}
-					addWithLastConsumed(
+					setWithLastConsumed(
 						$current,
-						"fieldName",
-						lv_fieldName_1_0,
+						"fieldAccess",
+						lv_fieldAccess_1_0,
 						"org.eclipse.xtext.common.Terminals.ID");
 				}
 			)
@@ -5561,55 +5561,6 @@ ruleMethodInvocation returns [EObject current=null]
 		{
 			newLeafNode(otherlv_3, grammarAccess.getMethodInvocationAccess().getRightParenthesisKeyword_3());
 		}
-	)
-;
-
-// Entry rule entryRuleParameterReference
-entryRuleParameterReference returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getParameterReferenceRule()); }
-	iv_ruleParameterReference=ruleParameterReference
-	{ $current=$iv_ruleParameterReference.current; }
-	EOF;
-
-// Rule ParameterReference
-ruleParameterReference returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		{
-			newCompositeNode(grammarAccess.getParameterReferenceAccess().getPostfixExpParserRuleCall_0());
-		}
-		this_PostfixExp_0=rulePostfixExp
-		{
-			$current = $this_PostfixExp_0.current;
-			afterParserOrEnumRuleCall();
-		}
-		otherlv_1=FullStop
-		{
-			newLeafNode(otherlv_1, grammarAccess.getParameterReferenceAccess().getFullStopKeyword_1());
-		}
-		(
-			(
-				lv_fieldName_2_0=RULE_ID
-				{
-					newLeafNode(lv_fieldName_2_0, grammarAccess.getParameterReferenceAccess().getFieldNameIDTerminalRuleCall_2_0());
-				}
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getParameterReferenceRule());
-					}
-					addWithLastConsumed(
-						$current,
-						"fieldName",
-						lv_fieldName_2_0,
-						"org.eclipse.xtext.common.Terminals.ID");
-				}
-			)
-		)
 	)
 ;
 

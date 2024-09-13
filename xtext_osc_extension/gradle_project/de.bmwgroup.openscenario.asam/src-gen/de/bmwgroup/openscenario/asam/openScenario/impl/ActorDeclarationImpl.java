@@ -31,7 +31,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link de.bmwgroup.openscenario.asam.openScenario.impl.ActorDeclarationImpl#getName <em>Name</em>}</li>
+ *   <li>{@link de.bmwgroup.openscenario.asam.openScenario.impl.ActorDeclarationImpl#getActorName <em>Actor Name</em>}</li>
  *   <li>{@link de.bmwgroup.openscenario.asam.openScenario.impl.ActorDeclarationImpl#getBaseActorName <em>Base Actor Name</em>}</li>
  *   <li>{@link de.bmwgroup.openscenario.asam.openScenario.impl.ActorDeclarationImpl#getFieldName <em>Field Name</em>}</li>
  *   <li>{@link de.bmwgroup.openscenario.asam.openScenario.impl.ActorDeclarationImpl#getEnumReference <em>Enum Reference</em>}</li>
@@ -43,24 +43,24 @@ import org.eclipse.emf.ecore.util.InternalEList;
 public class ActorDeclarationImpl extends OscDeclarationImpl implements ActorDeclaration
 {
   /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * The default value of the '{@link #getActorName() <em>Actor Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
+   * @see #getActorName()
    * @generated
    * @ordered
    */
-  protected static final String NAME_EDEFAULT = null;
+  protected static final String ACTOR_NAME_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+   * The cached value of the '{@link #getActorName() <em>Actor Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
+   * @see #getActorName()
    * @generated
    * @ordered
    */
-  protected String name = NAME_EDEFAULT;
+  protected String actorName = ACTOR_NAME_EDEFAULT;
 
   /**
    * The default value of the '{@link #getBaseActorName() <em>Base Actor Name</em>}' attribute.
@@ -149,9 +149,9 @@ public class ActorDeclarationImpl extends OscDeclarationImpl implements ActorDec
    * @generated
    */
   @Override
-  public String getName()
+  public String getActorName()
   {
-    return name;
+    return actorName;
   }
 
   /**
@@ -160,12 +160,12 @@ public class ActorDeclarationImpl extends OscDeclarationImpl implements ActorDec
    * @generated
    */
   @Override
-  public void setName(String newName)
+  public void setActorName(String newActorName)
   {
-    String oldName = name;
-    name = newName;
+    String oldActorName = actorName;
+    actorName = newActorName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, OpenScenarioPackage.ACTOR_DECLARATION__NAME, oldName, name));
+      eNotify(new ENotificationImpl(this, Notification.SET, OpenScenarioPackage.ACTOR_DECLARATION__ACTOR_NAME, oldActorName, actorName));
   }
 
   /**
@@ -311,8 +311,8 @@ public class ActorDeclarationImpl extends OscDeclarationImpl implements ActorDec
   {
     switch (featureID)
     {
-      case OpenScenarioPackage.ACTOR_DECLARATION__NAME:
-        return getName();
+      case OpenScenarioPackage.ACTOR_DECLARATION__ACTOR_NAME:
+        return getActorName();
       case OpenScenarioPackage.ACTOR_DECLARATION__BASE_ACTOR_NAME:
         return getBaseActorName();
       case OpenScenarioPackage.ACTOR_DECLARATION__FIELD_NAME:
@@ -336,8 +336,8 @@ public class ActorDeclarationImpl extends OscDeclarationImpl implements ActorDec
   {
     switch (featureID)
     {
-      case OpenScenarioPackage.ACTOR_DECLARATION__NAME:
-        setName((String)newValue);
+      case OpenScenarioPackage.ACTOR_DECLARATION__ACTOR_NAME:
+        setActorName((String)newValue);
         return;
       case OpenScenarioPackage.ACTOR_DECLARATION__BASE_ACTOR_NAME:
         setBaseActorName((String)newValue);
@@ -366,8 +366,8 @@ public class ActorDeclarationImpl extends OscDeclarationImpl implements ActorDec
   {
     switch (featureID)
     {
-      case OpenScenarioPackage.ACTOR_DECLARATION__NAME:
-        setName(NAME_EDEFAULT);
+      case OpenScenarioPackage.ACTOR_DECLARATION__ACTOR_NAME:
+        setActorName(ACTOR_NAME_EDEFAULT);
         return;
       case OpenScenarioPackage.ACTOR_DECLARATION__BASE_ACTOR_NAME:
         setBaseActorName(BASE_ACTOR_NAME_EDEFAULT);
@@ -395,8 +395,8 @@ public class ActorDeclarationImpl extends OscDeclarationImpl implements ActorDec
   {
     switch (featureID)
     {
-      case OpenScenarioPackage.ACTOR_DECLARATION__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case OpenScenarioPackage.ACTOR_DECLARATION__ACTOR_NAME:
+        return ACTOR_NAME_EDEFAULT == null ? actorName != null : !ACTOR_NAME_EDEFAULT.equals(actorName);
       case OpenScenarioPackage.ACTOR_DECLARATION__BASE_ACTOR_NAME:
         return BASE_ACTOR_NAME_EDEFAULT == null ? baseActorName != null : !BASE_ACTOR_NAME_EDEFAULT.equals(baseActorName);
       case OpenScenarioPackage.ACTOR_DECLARATION__FIELD_NAME:
@@ -420,8 +420,8 @@ public class ActorDeclarationImpl extends OscDeclarationImpl implements ActorDec
     if (eIsProxy()) return super.toString();
 
     StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (name: ");
-    result.append(name);
+    result.append(" (actorName: ");
+    result.append(actorName);
     result.append(", baseActorName: ");
     result.append(baseActorName);
     result.append(", fieldName: ");

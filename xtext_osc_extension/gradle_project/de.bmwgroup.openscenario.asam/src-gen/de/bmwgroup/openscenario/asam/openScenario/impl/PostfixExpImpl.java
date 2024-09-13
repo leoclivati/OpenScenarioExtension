@@ -8,7 +8,6 @@ import de.bmwgroup.openscenario.asam.openScenario.EventCondition;
 import de.bmwgroup.openscenario.asam.openScenario.Expression;
 import de.bmwgroup.openscenario.asam.openScenario.Factor;
 import de.bmwgroup.openscenario.asam.openScenario.OpenScenarioPackage;
-import de.bmwgroup.openscenario.asam.openScenario.ParameterReference;
 import de.bmwgroup.openscenario.asam.openScenario.PostfixExp;
 import de.bmwgroup.openscenario.asam.openScenario.PostfixExpTail;
 import de.bmwgroup.openscenario.asam.openScenario.PrimaryExp;
@@ -49,7 +48,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link de.bmwgroup.openscenario.asam.openScenario.impl.PostfixExpImpl#getPrimaryExp <em>Primary Exp</em>}</li>
  *   <li>{@link de.bmwgroup.openscenario.asam.openScenario.impl.PostfixExpImpl#getTail <em>Tail</em>}</li>
  *   <li>{@link de.bmwgroup.openscenario.asam.openScenario.impl.PostfixExpImpl#getArgumentList <em>Argument List</em>}</li>
- *   <li>{@link de.bmwgroup.openscenario.asam.openScenario.impl.PostfixExpImpl#getFieldName <em>Field Name</em>}</li>
  * </ul>
  *
  * @generated
@@ -145,16 +143,6 @@ public class PostfixExpImpl extends MethodInvocationImpl implements PostfixExp
    * @ordered
    */
   protected EList<ArgumentList> argumentList;
-
-  /**
-   * The cached value of the '{@link #getFieldName() <em>Field Name</em>}' attribute list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getFieldName()
-   * @generated
-   * @ordered
-   */
-  protected EList<String> fieldName;
 
   /**
    * <!-- begin-user-doc -->
@@ -353,21 +341,6 @@ public class PostfixExpImpl extends MethodInvocationImpl implements PostfixExp
    * @generated
    */
   @Override
-  public EList<String> getFieldName()
-  {
-    if (fieldName == null)
-    {
-      fieldName = new EDataTypeEList<String>(String.class, this, OpenScenarioPackage.POSTFIX_EXP__FIELD_NAME);
-    }
-    return fieldName;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
     switch (featureID)
@@ -416,8 +389,6 @@ public class PostfixExpImpl extends MethodInvocationImpl implements PostfixExp
         return getTail();
       case OpenScenarioPackage.POSTFIX_EXP__ARGUMENT_LIST:
         return getArgumentList();
-      case OpenScenarioPackage.POSTFIX_EXP__FIELD_NAME:
-        return getFieldName();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -468,10 +439,6 @@ public class PostfixExpImpl extends MethodInvocationImpl implements PostfixExp
         getArgumentList().clear();
         getArgumentList().addAll((Collection<? extends ArgumentList>)newValue);
         return;
-      case OpenScenarioPackage.POSTFIX_EXP__FIELD_NAME:
-        getFieldName().clear();
-        getFieldName().addAll((Collection<? extends String>)newValue);
-        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -513,9 +480,6 @@ public class PostfixExpImpl extends MethodInvocationImpl implements PostfixExp
       case OpenScenarioPackage.POSTFIX_EXP__ARGUMENT_LIST:
         getArgumentList().clear();
         return;
-      case OpenScenarioPackage.POSTFIX_EXP__FIELD_NAME:
-        getFieldName().clear();
-        return;
     }
     super.eUnset(featureID);
   }
@@ -548,8 +512,6 @@ public class PostfixExpImpl extends MethodInvocationImpl implements PostfixExp
         return tail != null && !tail.isEmpty();
       case OpenScenarioPackage.POSTFIX_EXP__ARGUMENT_LIST:
         return argumentList != null && !argumentList.isEmpty();
-      case OpenScenarioPackage.POSTFIX_EXP__FIELD_NAME:
-        return fieldName != null && !fieldName.isEmpty();
     }
     return super.eIsSet(featureID);
   }
@@ -562,13 +524,6 @@ public class PostfixExpImpl extends MethodInvocationImpl implements PostfixExp
   @Override
   public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass)
   {
-    if (baseClass == ParameterReference.class)
-    {
-      switch (derivedFeatureID)
-      {
-        default: return -1;
-      }
-    }
     if (baseClass == EventCondition.class)
     {
       switch (derivedFeatureID)
@@ -628,13 +583,6 @@ public class PostfixExpImpl extends MethodInvocationImpl implements PostfixExp
   @Override
   public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass)
   {
-    if (baseClass == ParameterReference.class)
-    {
-      switch (baseFeatureID)
-      {
-        default: return -1;
-      }
-    }
     if (baseClass == EventCondition.class)
     {
       switch (baseFeatureID)
@@ -703,8 +651,6 @@ public class PostfixExpImpl extends MethodInvocationImpl implements PostfixExp
     result.append(additiveOp);
     result.append(", multiplicativeOp: ");
     result.append(multiplicativeOp);
-    result.append(", fieldName: ");
-    result.append(fieldName);
     result.append(')');
     return result.toString();
   }

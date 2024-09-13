@@ -576,7 +576,6 @@ public class OpenScenarioSwitch<T> extends Switch<T>
         PostfixExp postfixExp = (PostfixExp)theEObject;
         T result = casePostfixExp(postfixExp);
         if (result == null) result = caseMethodInvocation(postfixExp);
-        if (result == null) result = caseParameterReference(postfixExp);
         if (result == null) result = caseFactor(postfixExp);
         if (result == null) result = caseTerm(postfixExp);
         if (result == null) result = caseSum(postfixExp);
@@ -609,13 +608,6 @@ public class OpenScenarioSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case OpenScenarioPackage.ELEMENT_ACCESS_TAIL:
-      {
-        ElementAccessTail elementAccessTail = (ElementAccessTail)theEObject;
-        T result = caseElementAccessTail(elementAccessTail);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case OpenScenarioPackage.FIELD_ACCESS_TAIL:
       {
         FieldAccessTail fieldAccessTail = (FieldAccessTail)theEObject;
@@ -628,13 +620,6 @@ public class OpenScenarioSwitch<T> extends Switch<T>
       {
         MethodInvocation methodInvocation = (MethodInvocation)theEObject;
         T result = caseMethodInvocation(methodInvocation);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case OpenScenarioPackage.PARAMETER_REFERENCE:
-      {
-        ParameterReference parameterReference = (ParameterReference)theEObject;
-        T result = caseParameterReference(parameterReference);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -1813,22 +1798,6 @@ public class OpenScenarioSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Element Access Tail</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Element Access Tail</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseElementAccessTail(ElementAccessTail object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>Field Access Tail</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -1856,22 +1825,6 @@ public class OpenScenarioSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseMethodInvocation(MethodInvocation object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Parameter Reference</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Parameter Reference</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseParameterReference(ParameterReference object)
   {
     return null;
   }

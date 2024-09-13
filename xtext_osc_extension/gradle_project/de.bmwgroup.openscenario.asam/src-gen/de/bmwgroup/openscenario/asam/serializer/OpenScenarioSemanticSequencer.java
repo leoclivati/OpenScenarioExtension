@@ -19,7 +19,6 @@ import de.bmwgroup.openscenario.asam.openScenario.CoverageDeclaration;
 import de.bmwgroup.openscenario.asam.openScenario.DoDirective;
 import de.bmwgroup.openscenario.asam.openScenario.DoDirectiveMember;
 import de.bmwgroup.openscenario.asam.openScenario.ElapsedExpression;
-import de.bmwgroup.openscenario.asam.openScenario.ElementAccessTail;
 import de.bmwgroup.openscenario.asam.openScenario.EmitDirective;
 import de.bmwgroup.openscenario.asam.openScenario.EnumDeclaration;
 import de.bmwgroup.openscenario.asam.openScenario.EnumMemberDeclaration;
@@ -136,9 +135,6 @@ public class OpenScenarioSemanticSequencer extends AbstractDelegatingSemanticSeq
 			case OpenScenarioPackage.ELAPSED_EXPRESSION:
 				sequence_ElapsedExpression(context, (ElapsedExpression) semanticObject); 
 				return; 
-			case OpenScenarioPackage.ELEMENT_ACCESS_TAIL:
-				sequence_ElementAccessTail(context, (ElementAccessTail) semanticObject); 
-				return; 
 			case OpenScenarioPackage.EMIT_DIRECTIVE:
 				sequence_EmitDirective(context, (EmitDirective) semanticObject); 
 				return; 
@@ -220,10 +216,6 @@ public class OpenScenarioSemanticSequencer extends AbstractDelegatingSemanticSeq
 			case OpenScenarioPackage.POSTFIX_EXP:
 				if (rule == grammarAccess.getMethodInvocationRule()) {
 					sequence_MethodInvocation_PostfixExp(context, (PostfixExp) semanticObject); 
-					return; 
-				}
-				else if (rule == grammarAccess.getParameterReferenceRule()) {
-					sequence_ParameterReference_PostfixExp(context, (PostfixExp) semanticObject); 
 					return; 
 				}
 				else if (rule == grammarAccess.getPostfixExpRule()
@@ -309,7 +301,7 @@ public class OpenScenarioSemanticSequencer extends AbstractDelegatingSemanticSeq
 	 *     ActionDeclaration returns ActionDeclaration
 	 *
 	 * Constraint:
-	 *     (name=ID (baseActionName=ID (fieldName=ID enumReference=EnumValueReference?)?)? ActionMemberDecl+=MemberDeclaration*)
+	 *     (actionName=ID (baseActionName=ID (fieldName=ID enumReference=EnumValueReference?)?)? ActionMemberDecl+=MemberDeclaration*)
 	 * </pre>
 	 */
 	protected void sequence_ActionDeclaration(ISerializationContext context, ActionDeclaration semanticObject) {
@@ -324,7 +316,7 @@ public class OpenScenarioSemanticSequencer extends AbstractDelegatingSemanticSeq
 	 *     ActorDeclaration returns ActorDeclaration
 	 *
 	 * Constraint:
-	 *     (name=ID (baseActorName=ID (fieldName=ID enumReference=EnumValueReference?)?)? ActorMemberDecl+=MemberDeclaration*)
+	 *     (actorName=ID (baseActorName=ID (fieldName=ID enumReference=EnumValueReference?)?)? ActorMemberDecl+=MemberDeclaration*)
 	 * </pre>
 	 */
 	protected void sequence_ActorDeclaration(ISerializationContext context, ActorDeclaration semanticObject) {
@@ -574,20 +566,6 @@ public class OpenScenarioSemanticSequencer extends AbstractDelegatingSemanticSeq
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     ElementAccessTail returns ElementAccessTail
-	 *
-	 * Constraint:
-	 *     expression+=Expression
-	 * </pre>
-	 */
-	protected void sequence_ElementAccessTail(ISerializationContext context, ElementAccessTail semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * <pre>
-	 * Contexts:
 	 *     OnDirectiveMember returns EmitDirective
 	 *     EmitDirective returns EmitDirective
 	 *
@@ -777,11 +755,17 @@ public class OpenScenarioSemanticSequencer extends AbstractDelegatingSemanticSeq
 	 *     FieldAccessTail returns FieldAccessTail
 	 *
 	 * Constraint:
-	 *     fieldName+=ID
+	 *     fieldAccess=ID
 	 * </pre>
 	 */
 	protected void sequence_FieldAccessTail(ISerializationContext context, FieldAccessTail semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, OpenScenarioPackage.Literals.FIELD_ACCESS_TAIL__FIELD_ACCESS) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OpenScenarioPackage.Literals.FIELD_ACCESS_TAIL__FIELD_ACCESS));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getFieldAccessTailAccess().getFieldAccessIDTerminalRuleCall_1_0(), semanticObject.getFieldAccess());
+		feeder.finish();
 	}
 	
 	
@@ -983,20 +967,6 @@ public class OpenScenarioSemanticSequencer extends AbstractDelegatingSemanticSeq
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     ParameterReference returns PostfixExp
-	 *
-	 * Constraint:
-	 *     (primaryExp=PrimaryExp tail+=PostfixExpTail* fieldName+=ID)
-	 * </pre>
-	 */
-	protected void sequence_ParameterReference_PostfixExp(ISerializationContext context, PostfixExp semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * <pre>
-	 * Contexts:
 	 *     ParameterWithDeclaration returns ParameterWithDeclaration
 	 *
 	 * Constraint:
@@ -1138,7 +1108,7 @@ public class OpenScenarioSemanticSequencer extends AbstractDelegatingSemanticSeq
 	 *     RemoveDefaultDeclaration returns RemoveDefaultDeclaration
 	 *
 	 * Constraint:
-	 *     parameterReference=ParameterReference
+	 *     parameterReference=PostfixExp
 	 * </pre>
 	 */
 	protected void sequence_RemoveDefaultDeclaration(ISerializationContext context, RemoveDefaultDeclaration semanticObject) {
@@ -1147,7 +1117,7 @@ public class OpenScenarioSemanticSequencer extends AbstractDelegatingSemanticSeq
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OpenScenarioPackage.Literals.REMOVE_DEFAULT_DECLARATION__PARAMETER_REFERENCE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getRemoveDefaultDeclarationAccess().getParameterReferenceParameterReferenceParserRuleCall_2_0(), semanticObject.getParameterReference());
+		feeder.accept(grammarAccess.getRemoveDefaultDeclarationAccess().getParameterReferencePostfixExpParserRuleCall_2_0(), semanticObject.getParameterReference());
 		feeder.finish();
 	}
 	
@@ -1266,7 +1236,7 @@ public class OpenScenarioSemanticSequencer extends AbstractDelegatingSemanticSeq
 	 *
 	 * Constraint:
 	 *     (
-	 *         name=ID 
+	 *         scenarioName=ID 
 	 *         (baseScenarioName=ID (fieldName=ID enumReference=EnumValueReference?)?)? 
 	 *         (ScenarioMemberDecl+=MemberDeclaration | BehaviorSpecification+=BehaviorSpecification)*
 	 *     )
@@ -1284,7 +1254,7 @@ public class OpenScenarioSemanticSequencer extends AbstractDelegatingSemanticSeq
 	 *     StructDeclaration returns StructDeclaration
 	 *
 	 * Constraint:
-	 *     (name=ID (baseStructName=ID (fieldName=ID enumReference=EnumValueReference?)?)? StructMemberDecl+=MemberDeclaration*)
+	 *     (structName=ID (baseStructName=ID (fieldName=ID enumReference=EnumValueReference?)?)? StructMemberDecl+=MemberDeclaration*)
 	 * </pre>
 	 */
 	protected void sequence_StructDeclaration(ISerializationContext context, StructDeclaration semanticObject) {

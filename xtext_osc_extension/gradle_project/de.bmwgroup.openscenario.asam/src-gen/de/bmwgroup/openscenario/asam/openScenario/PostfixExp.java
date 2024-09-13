@@ -17,14 +17,13 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link de.bmwgroup.openscenario.asam.openScenario.PostfixExp#getPrimaryExp <em>Primary Exp</em>}</li>
  *   <li>{@link de.bmwgroup.openscenario.asam.openScenario.PostfixExp#getTail <em>Tail</em>}</li>
  *   <li>{@link de.bmwgroup.openscenario.asam.openScenario.PostfixExp#getArgumentList <em>Argument List</em>}</li>
- *   <li>{@link de.bmwgroup.openscenario.asam.openScenario.PostfixExp#getFieldName <em>Field Name</em>}</li>
  * </ul>
  *
  * @see de.bmwgroup.openscenario.asam.openScenario.OpenScenarioPackage#getPostfixExp()
  * @model
  * @generated
  */
-public interface PostfixExp extends MethodInvocation, ParameterReference, Factor
+public interface PostfixExp extends MethodInvocation, Factor
 {
   /**
    * Returns the value of the '<em><b>Primary Exp</b></em>' containment reference.
@@ -71,17 +70,5 @@ public interface PostfixExp extends MethodInvocation, ParameterReference, Factor
    * @generated
    */
   EList<ArgumentList> getArgumentList();
-
-  /**
-   * Returns the value of the '<em><b>Field Name</b></em>' attribute list.
-   * The list contents are of type {@link java.lang.String}.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Field Name</em>' attribute list.
-   * @see de.bmwgroup.openscenario.asam.openScenario.OpenScenarioPackage#getPostfixExp_FieldName()
-   * @model unique="false"
-   * @generated
-   */
-  EList<String> getFieldName();
 
 } // PostfixExp

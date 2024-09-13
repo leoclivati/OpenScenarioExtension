@@ -411,11 +411,6 @@ public class OpenScenarioAdapterFactory extends AdapterFactoryImpl
         return createTypeTestTailAdapter();
       }
       @Override
-      public Adapter caseElementAccessTail(ElementAccessTail object)
-      {
-        return createElementAccessTailAdapter();
-      }
-      @Override
       public Adapter caseFieldAccessTail(FieldAccessTail object)
       {
         return createFieldAccessTailAdapter();
@@ -424,11 +419,6 @@ public class OpenScenarioAdapterFactory extends AdapterFactoryImpl
       public Adapter caseMethodInvocation(MethodInvocation object)
       {
         return createMethodInvocationAdapter();
-      }
-      @Override
-      public Adapter caseParameterReference(ParameterReference object)
-      {
-        return createParameterReferenceAdapter();
       }
       @Override
       public Adapter casePrimaryExp(PrimaryExp object)
@@ -1513,21 +1503,6 @@ public class OpenScenarioAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link de.bmwgroup.openscenario.asam.openScenario.ElementAccessTail <em>Element Access Tail</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see de.bmwgroup.openscenario.asam.openScenario.ElementAccessTail
-   * @generated
-   */
-  public Adapter createElementAccessTailAdapter()
-  {
-    return null;
-  }
-
-  /**
    * Creates a new adapter for an object of class '{@link de.bmwgroup.openscenario.asam.openScenario.FieldAccessTail <em>Field Access Tail</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -1553,21 +1528,6 @@ public class OpenScenarioAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createMethodInvocationAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link de.bmwgroup.openscenario.asam.openScenario.ParameterReference <em>Parameter Reference</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see de.bmwgroup.openscenario.asam.openScenario.ParameterReference
-   * @generated
-   */
-  public Adapter createParameterReferenceAdapter()
   {
     return null;
   }

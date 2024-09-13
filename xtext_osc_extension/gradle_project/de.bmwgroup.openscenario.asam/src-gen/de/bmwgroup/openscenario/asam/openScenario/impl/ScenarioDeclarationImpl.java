@@ -32,7 +32,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link de.bmwgroup.openscenario.asam.openScenario.impl.ScenarioDeclarationImpl#getName <em>Name</em>}</li>
+ *   <li>{@link de.bmwgroup.openscenario.asam.openScenario.impl.ScenarioDeclarationImpl#getScenarioName <em>Scenario Name</em>}</li>
  *   <li>{@link de.bmwgroup.openscenario.asam.openScenario.impl.ScenarioDeclarationImpl#getBaseScenarioName <em>Base Scenario Name</em>}</li>
  *   <li>{@link de.bmwgroup.openscenario.asam.openScenario.impl.ScenarioDeclarationImpl#getFieldName <em>Field Name</em>}</li>
  *   <li>{@link de.bmwgroup.openscenario.asam.openScenario.impl.ScenarioDeclarationImpl#getEnumReference <em>Enum Reference</em>}</li>
@@ -45,24 +45,24 @@ import org.eclipse.emf.ecore.util.InternalEList;
 public class ScenarioDeclarationImpl extends OscDeclarationImpl implements ScenarioDeclaration
 {
   /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * The default value of the '{@link #getScenarioName() <em>Scenario Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
+   * @see #getScenarioName()
    * @generated
    * @ordered
    */
-  protected static final String NAME_EDEFAULT = null;
+  protected static final String SCENARIO_NAME_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+   * The cached value of the '{@link #getScenarioName() <em>Scenario Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
+   * @see #getScenarioName()
    * @generated
    * @ordered
    */
-  protected String name = NAME_EDEFAULT;
+  protected String scenarioName = SCENARIO_NAME_EDEFAULT;
 
   /**
    * The default value of the '{@link #getBaseScenarioName() <em>Base Scenario Name</em>}' attribute.
@@ -161,9 +161,9 @@ public class ScenarioDeclarationImpl extends OscDeclarationImpl implements Scena
    * @generated
    */
   @Override
-  public String getName()
+  public String getScenarioName()
   {
-    return name;
+    return scenarioName;
   }
 
   /**
@@ -172,12 +172,12 @@ public class ScenarioDeclarationImpl extends OscDeclarationImpl implements Scena
    * @generated
    */
   @Override
-  public void setName(String newName)
+  public void setScenarioName(String newScenarioName)
   {
-    String oldName = name;
-    name = newName;
+    String oldScenarioName = scenarioName;
+    scenarioName = newScenarioName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, OpenScenarioPackage.SCENARIO_DECLARATION__NAME, oldName, name));
+      eNotify(new ENotificationImpl(this, Notification.SET, OpenScenarioPackage.SCENARIO_DECLARATION__SCENARIO_NAME, oldScenarioName, scenarioName));
   }
 
   /**
@@ -340,8 +340,8 @@ public class ScenarioDeclarationImpl extends OscDeclarationImpl implements Scena
   {
     switch (featureID)
     {
-      case OpenScenarioPackage.SCENARIO_DECLARATION__NAME:
-        return getName();
+      case OpenScenarioPackage.SCENARIO_DECLARATION__SCENARIO_NAME:
+        return getScenarioName();
       case OpenScenarioPackage.SCENARIO_DECLARATION__BASE_SCENARIO_NAME:
         return getBaseScenarioName();
       case OpenScenarioPackage.SCENARIO_DECLARATION__FIELD_NAME:
@@ -367,8 +367,8 @@ public class ScenarioDeclarationImpl extends OscDeclarationImpl implements Scena
   {
     switch (featureID)
     {
-      case OpenScenarioPackage.SCENARIO_DECLARATION__NAME:
-        setName((String)newValue);
+      case OpenScenarioPackage.SCENARIO_DECLARATION__SCENARIO_NAME:
+        setScenarioName((String)newValue);
         return;
       case OpenScenarioPackage.SCENARIO_DECLARATION__BASE_SCENARIO_NAME:
         setBaseScenarioName((String)newValue);
@@ -401,8 +401,8 @@ public class ScenarioDeclarationImpl extends OscDeclarationImpl implements Scena
   {
     switch (featureID)
     {
-      case OpenScenarioPackage.SCENARIO_DECLARATION__NAME:
-        setName(NAME_EDEFAULT);
+      case OpenScenarioPackage.SCENARIO_DECLARATION__SCENARIO_NAME:
+        setScenarioName(SCENARIO_NAME_EDEFAULT);
         return;
       case OpenScenarioPackage.SCENARIO_DECLARATION__BASE_SCENARIO_NAME:
         setBaseScenarioName(BASE_SCENARIO_NAME_EDEFAULT);
@@ -433,8 +433,8 @@ public class ScenarioDeclarationImpl extends OscDeclarationImpl implements Scena
   {
     switch (featureID)
     {
-      case OpenScenarioPackage.SCENARIO_DECLARATION__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case OpenScenarioPackage.SCENARIO_DECLARATION__SCENARIO_NAME:
+        return SCENARIO_NAME_EDEFAULT == null ? scenarioName != null : !SCENARIO_NAME_EDEFAULT.equals(scenarioName);
       case OpenScenarioPackage.SCENARIO_DECLARATION__BASE_SCENARIO_NAME:
         return BASE_SCENARIO_NAME_EDEFAULT == null ? baseScenarioName != null : !BASE_SCENARIO_NAME_EDEFAULT.equals(baseScenarioName);
       case OpenScenarioPackage.SCENARIO_DECLARATION__FIELD_NAME:
@@ -460,8 +460,8 @@ public class ScenarioDeclarationImpl extends OscDeclarationImpl implements Scena
     if (eIsProxy()) return super.toString();
 
     StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (name: ");
-    result.append(name);
+    result.append(" (scenarioName: ");
+    result.append(scenarioName);
     result.append(", baseScenarioName: ");
     result.append(baseScenarioName);
     result.append(", fieldName: ");

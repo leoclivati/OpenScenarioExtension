@@ -3,7 +3,6 @@
  */
 package de.bmwgroup.openscenario.asam.openScenario;
 
-import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -14,7 +13,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link de.bmwgroup.openscenario.asam.openScenario.FieldAccessTail#getFieldName <em>Field Name</em>}</li>
+ *   <li>{@link de.bmwgroup.openscenario.asam.openScenario.FieldAccessTail#getFieldAccess <em>Field Access</em>}</li>
  * </ul>
  *
  * @see de.bmwgroup.openscenario.asam.openScenario.OpenScenarioPackage#getFieldAccessTail()
@@ -24,15 +23,25 @@ import org.eclipse.emf.common.util.EList;
 public interface FieldAccessTail extends PostfixExpTail
 {
   /**
-   * Returns the value of the '<em><b>Field Name</b></em>' attribute list.
-   * The list contents are of type {@link java.lang.String}.
+   * Returns the value of the '<em><b>Field Access</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Field Name</em>' attribute list.
-   * @see de.bmwgroup.openscenario.asam.openScenario.OpenScenarioPackage#getFieldAccessTail_FieldName()
-   * @model unique="false"
+   * @return the value of the '<em>Field Access</em>' attribute.
+   * @see #setFieldAccess(String)
+   * @see de.bmwgroup.openscenario.asam.openScenario.OpenScenarioPackage#getFieldAccessTail_FieldAccess()
+   * @model
    * @generated
    */
-  EList<String> getFieldName();
+  String getFieldAccess();
+
+  /**
+   * Sets the value of the '{@link de.bmwgroup.openscenario.asam.openScenario.FieldAccessTail#getFieldAccess <em>Field Access</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Field Access</em>' attribute.
+   * @see #getFieldAccess()
+   * @generated
+   */
+  void setFieldAccess(String value);
 
 } // FieldAccessTail

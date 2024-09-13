@@ -29,7 +29,13 @@
        },{
        "command": "osc.b",
        "title": "OSC Command B"
-       }]
+       }],
+       "snippets": [
+        {
+          "language": "osc",
+          "path": "./autocomplete/snippets.json"
+        }
+       ]
   },
   "devDependencies": {
     "@types/node": "^22.4.1",

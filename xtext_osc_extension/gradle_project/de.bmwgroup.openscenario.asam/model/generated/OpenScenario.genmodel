@@ -80,28 +80,28 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OpenScenario.ecore#//ModifierDeclaration/BehaviorSpecification"/>
     </genClasses>
     <genClasses ecoreClass="OpenScenario.ecore#//ActionDeclaration">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OpenScenario.ecore#//ActionDeclaration/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OpenScenario.ecore#//ActionDeclaration/actionName"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OpenScenario.ecore#//ActionDeclaration/baseActionName"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OpenScenario.ecore#//ActionDeclaration/fieldName"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OpenScenario.ecore#//ActionDeclaration/enumReference"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OpenScenario.ecore#//ActionDeclaration/ActionMemberDecl"/>
     </genClasses>
     <genClasses ecoreClass="OpenScenario.ecore#//ActorDeclaration">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OpenScenario.ecore#//ActorDeclaration/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OpenScenario.ecore#//ActorDeclaration/actorName"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OpenScenario.ecore#//ActorDeclaration/baseActorName"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OpenScenario.ecore#//ActorDeclaration/fieldName"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OpenScenario.ecore#//ActorDeclaration/enumReference"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OpenScenario.ecore#//ActorDeclaration/ActorMemberDecl"/>
     </genClasses>
     <genClasses ecoreClass="OpenScenario.ecore#//StructDeclaration">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OpenScenario.ecore#//StructDeclaration/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OpenScenario.ecore#//StructDeclaration/structName"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OpenScenario.ecore#//StructDeclaration/baseStructName"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OpenScenario.ecore#//StructDeclaration/fieldName"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OpenScenario.ecore#//StructDeclaration/enumReference"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OpenScenario.ecore#//StructDeclaration/StructMemberDecl"/>
     </genClasses>
     <genClasses ecoreClass="OpenScenario.ecore#//ScenarioDeclaration">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OpenScenario.ecore#//ScenarioDeclaration/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OpenScenario.ecore#//ScenarioDeclaration/scenarioName"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OpenScenario.ecore#//ScenarioDeclaration/baseScenarioName"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OpenScenario.ecore#//ScenarioDeclaration/fieldName"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OpenScenario.ecore#//ScenarioDeclaration/enumReference"/>
@@ -244,7 +244,6 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OpenScenario.ecore#//PostfixExp/primaryExp"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OpenScenario.ecore#//PostfixExp/tail"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OpenScenario.ecore#//PostfixExp/argumentList"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OpenScenario.ecore#//PostfixExp/fieldName"/>
     </genClasses>
     <genClasses ecoreClass="OpenScenario.ecore#//PostfixExpTail"/>
     <genClasses ecoreClass="OpenScenario.ecore#//CastExpTail">
@@ -253,14 +252,10 @@
     <genClasses ecoreClass="OpenScenario.ecore#//TypeTestTail">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OpenScenario.ecore#//TypeTestTail/typeDeclarator"/>
     </genClasses>
-    <genClasses ecoreClass="OpenScenario.ecore#//ElementAccessTail">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OpenScenario.ecore#//ElementAccessTail/expression"/>
-    </genClasses>
     <genClasses ecoreClass="OpenScenario.ecore#//FieldAccessTail">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OpenScenario.ecore#//FieldAccessTail/fieldName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OpenScenario.ecore#//FieldAccessTail/fieldAccess"/>
     </genClasses>
     <genClasses ecoreClass="OpenScenario.ecore#//MethodInvocation"/>
-    <genClasses ecoreClass="OpenScenario.ecore#//ParameterReference"/>
     <genClasses ecoreClass="OpenScenario.ecore#//PrimaryExp"/>
     <genClasses ecoreClass="OpenScenario.ecore#//ValueExp"/>
     <genClasses ecoreClass="OpenScenario.ecore#//PhysicalType">

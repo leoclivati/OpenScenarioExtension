@@ -627,15 +627,6 @@ public interface OpenScenarioFactory extends EFactory
   TypeTestTail createTypeTestTail();
 
   /**
-   * Returns a new object of class '<em>Element Access Tail</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Element Access Tail</em>'.
-   * @generated
-   */
-  ElementAccessTail createElementAccessTail();
-
-  /**
    * Returns a new object of class '<em>Field Access Tail</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -652,15 +643,6 @@ public interface OpenScenarioFactory extends EFactory
    * @generated
    */
   MethodInvocation createMethodInvocation();
-
-  /**
-   * Returns a new object of class '<em>Parameter Reference</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Parameter Reference</em>'.
-   * @generated
-   */
-  ParameterReference createParameterReference();
 
   /**
    * Returns a new object of class '<em>Primary Exp</em>'.

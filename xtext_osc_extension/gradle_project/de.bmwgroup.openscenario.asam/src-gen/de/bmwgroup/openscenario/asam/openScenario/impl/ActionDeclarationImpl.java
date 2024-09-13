@@ -31,7 +31,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link de.bmwgroup.openscenario.asam.openScenario.impl.ActionDeclarationImpl#getName <em>Name</em>}</li>
+ *   <li>{@link de.bmwgroup.openscenario.asam.openScenario.impl.ActionDeclarationImpl#getActionName <em>Action Name</em>}</li>
  *   <li>{@link de.bmwgroup.openscenario.asam.openScenario.impl.ActionDeclarationImpl#getBaseActionName <em>Base Action Name</em>}</li>
  *   <li>{@link de.bmwgroup.openscenario.asam.openScenario.impl.ActionDeclarationImpl#getFieldName <em>Field Name</em>}</li>
  *   <li>{@link de.bmwgroup.openscenario.asam.openScenario.impl.ActionDeclarationImpl#getEnumReference <em>Enum Reference</em>}</li>
@@ -43,24 +43,24 @@ import org.eclipse.emf.ecore.util.InternalEList;
 public class ActionDeclarationImpl extends OscDeclarationImpl implements ActionDeclaration
 {
   /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * The default value of the '{@link #getActionName() <em>Action Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
+   * @see #getActionName()
    * @generated
    * @ordered
    */
-  protected static final String NAME_EDEFAULT = null;
+  protected static final String ACTION_NAME_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+   * The cached value of the '{@link #getActionName() <em>Action Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
+   * @see #getActionName()
    * @generated
    * @ordered
    */
-  protected String name = NAME_EDEFAULT;
+  protected String actionName = ACTION_NAME_EDEFAULT;
 
   /**
    * The default value of the '{@link #getBaseActionName() <em>Base Action Name</em>}' attribute.
@@ -149,9 +149,9 @@ public class ActionDeclarationImpl extends OscDeclarationImpl implements ActionD
    * @generated
    */
   @Override
-  public String getName()
+  public String getActionName()
   {
-    return name;
+    return actionName;
   }
 
   /**
@@ -160,12 +160,12 @@ public class ActionDeclarationImpl extends OscDeclarationImpl implements ActionD
    * @generated
    */
   @Override
-  public void setName(String newName)
+  public void setActionName(String newActionName)
   {
-    String oldName = name;
-    name = newName;
+    String oldActionName = actionName;
+    actionName = newActionName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, OpenScenarioPackage.ACTION_DECLARATION__NAME, oldName, name));
+      eNotify(new ENotificationImpl(this, Notification.SET, OpenScenarioPackage.ACTION_DECLARATION__ACTION_NAME, oldActionName, actionName));
   }
 
   /**
@@ -311,8 +311,8 @@ public class ActionDeclarationImpl extends OscDeclarationImpl implements ActionD
   {
     switch (featureID)
     {
-      case OpenScenarioPackage.ACTION_DECLARATION__NAME:
-        return getName();
+      case OpenScenarioPackage.ACTION_DECLARATION__ACTION_NAME:
+        return getActionName();
       case OpenScenarioPackage.ACTION_DECLARATION__BASE_ACTION_NAME:
         return getBaseActionName();
       case OpenScenarioPackage.ACTION_DECLARATION__FIELD_NAME:
@@ -336,8 +336,8 @@ public class ActionDeclarationImpl extends OscDeclarationImpl implements ActionD
   {
     switch (featureID)
     {
-      case OpenScenarioPackage.ACTION_DECLARATION__NAME:
-        setName((String)newValue);
+      case OpenScenarioPackage.ACTION_DECLARATION__ACTION_NAME:
+        setActionName((String)newValue);
         return;
       case OpenScenarioPackage.ACTION_DECLARATION__BASE_ACTION_NAME:
         setBaseActionName((String)newValue);
@@ -366,8 +366,8 @@ public class ActionDeclarationImpl extends OscDeclarationImpl implements ActionD
   {
     switch (featureID)
     {
-      case OpenScenarioPackage.ACTION_DECLARATION__NAME:
-        setName(NAME_EDEFAULT);
+      case OpenScenarioPackage.ACTION_DECLARATION__ACTION_NAME:
+        setActionName(ACTION_NAME_EDEFAULT);
         return;
       case OpenScenarioPackage.ACTION_DECLARATION__BASE_ACTION_NAME:
         setBaseActionName(BASE_ACTION_NAME_EDEFAULT);
@@ -395,8 +395,8 @@ public class ActionDeclarationImpl extends OscDeclarationImpl implements ActionD
   {
     switch (featureID)
     {
-      case OpenScenarioPackage.ACTION_DECLARATION__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case OpenScenarioPackage.ACTION_DECLARATION__ACTION_NAME:
+        return ACTION_NAME_EDEFAULT == null ? actionName != null : !ACTION_NAME_EDEFAULT.equals(actionName);
       case OpenScenarioPackage.ACTION_DECLARATION__BASE_ACTION_NAME:
         return BASE_ACTION_NAME_EDEFAULT == null ? baseActionName != null : !BASE_ACTION_NAME_EDEFAULT.equals(baseActionName);
       case OpenScenarioPackage.ACTION_DECLARATION__FIELD_NAME:
@@ -420,8 +420,8 @@ public class ActionDeclarationImpl extends OscDeclarationImpl implements ActionD
     if (eIsProxy()) return super.toString();
 
     StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (name: ");
-    result.append(name);
+    result.append(" (actionName: ");
+    result.append(actionName);
     result.append(", baseActionName: ");
     result.append(baseActionName);
     result.append(", fieldName: ");

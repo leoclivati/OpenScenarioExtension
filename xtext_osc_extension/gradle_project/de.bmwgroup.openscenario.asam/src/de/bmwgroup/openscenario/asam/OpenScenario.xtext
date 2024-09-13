@@ -130,7 +130,7 @@ ModifierDeclaration:
 
 //ActionDeclaration
 ActionDeclaration:
-    'action' name=ID 
+    'action' actionName=ID 
     ('inherits' baseActionName=ID 
      ('(' fieldName=ID '==' (enumReference = EnumValueReference | BOOL) ')')?)? ':'  
      BEGIN
@@ -140,7 +140,7 @@ ActionDeclaration:
 
 //ActorDeclaration
 ActorDeclaration:
-    'actor' name=ID 
+    'actor' actorName=ID 
     ('inherits' baseActorName=ID 
      ('(' fieldName=ID '==' (enumReference = EnumValueReference | BOOL) ')')?)? (':' 
      BEGIN
@@ -150,7 +150,7 @@ ActorDeclaration:
 
 //StructDeclaration
 StructDeclaration:
-    'struct' name=ID 
+    'struct' structName=ID 
     ('inherits' baseStructName=ID
      ('(' fieldName=ID '==' (enumReference = EnumValueReference | BOOL) ')')?)? ':'  
      BEGIN
@@ -160,7 +160,7 @@ StructDeclaration:
 
 //Scenario Declaration
 ScenarioDeclaration:
-    'scenario' name=ID 
+    'scenario' scenarioName=ID 
     ('inherits' baseScenarioName=ID 
      ('(' fieldName=ID '==' (enumReference = EnumValueReference | BOOL) ')')?)? ':'  
      BEGIN
@@ -336,7 +336,7 @@ ConstraintQualifier:
 ;
 
 RemoveDefaultDeclaration:
-	'remove_default' '(' parameterReference=ParameterReference ')'	
+	'remove_default' '(' parameterReference=PostfixExp ')'	
 ;
 
 UntilDirective:
@@ -379,20 +379,12 @@ TypeTestTail:
 	'.' 'is' '(' typeDeclarator+=TypeDeclarator ')'
 ;
 
-ElementAccessTail:
-	'[' expression+=Expression ']' //Couldn't integrate without generating fatal errors
-;
-
 FieldAccessTail:
-	'.' fieldName+=ID
+	'.' fieldAccess=ID
 ;
 
 MethodInvocation:
 	PostfixExp '(' (argumentList+=ArgumentList)? ')' //Generate Warnings: Repetition of the format in some cases
-;
-
-ParameterReference:
-	(PostfixExp '.' fieldName+=ID) //Generate Warnings: Repetition of the format in some cases
 ;
 
 //Assistence

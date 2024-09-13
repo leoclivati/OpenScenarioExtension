@@ -1132,8 +1132,8 @@ public class OpenScenarioGrammarAccess extends AbstractElementFinder.AbstractGra
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.bmwgroup.openscenario.asam.OpenScenario.ActionDeclaration");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cActionKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Assignment cActionNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cActionNameIDTerminalRuleCall_1_0 = (RuleCall)cActionNameAssignment_1.eContents().get(0);
 		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
 		private final Keyword cInheritsKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
 		private final Assignment cBaseActionNameAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
@@ -1156,7 +1156,7 @@ public class OpenScenarioGrammarAccess extends AbstractElementFinder.AbstractGra
 		
 		////ActionDeclaration
 		//ActionDeclaration:
-		//    'action' name=ID
+		//    'action' actionName=ID
 		//    ('inherits' baseActionName=ID
 		//     ('(' fieldName=ID '==' (enumReference = EnumValueReference | BOOL) ')')?)? ':'
 		//     BEGIN
@@ -1165,7 +1165,7 @@ public class OpenScenarioGrammarAccess extends AbstractElementFinder.AbstractGra
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'action' name=ID
+		//'action' actionName=ID
 		//('inherits' baseActionName=ID
 		// ('(' fieldName=ID '==' (enumReference = EnumValueReference | BOOL) ')')?)? ':'
 		// BEGIN
@@ -1176,11 +1176,11 @@ public class OpenScenarioGrammarAccess extends AbstractElementFinder.AbstractGra
 		//'action'
 		public Keyword getActionKeyword_0() { return cActionKeyword_0; }
 		
-		//name=ID
-		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		//actionName=ID
+		public Assignment getActionNameAssignment_1() { return cActionNameAssignment_1; }
 		
 		//ID
-		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		public RuleCall getActionNameIDTerminalRuleCall_1_0() { return cActionNameIDTerminalRuleCall_1_0; }
 		
 		//('inherits' baseActionName=ID
 		// ('(' fieldName=ID '==' (enumReference = EnumValueReference | BOOL) ')')?)?
@@ -1244,8 +1244,8 @@ public class OpenScenarioGrammarAccess extends AbstractElementFinder.AbstractGra
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.bmwgroup.openscenario.asam.OpenScenario.ActorDeclaration");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cActorKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Assignment cActorNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cActorNameIDTerminalRuleCall_1_0 = (RuleCall)cActorNameAssignment_1.eContents().get(0);
 		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
 		private final Keyword cInheritsKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
 		private final Assignment cBaseActorNameAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
@@ -1269,7 +1269,7 @@ public class OpenScenarioGrammarAccess extends AbstractElementFinder.AbstractGra
 		
 		////ActorDeclaration
 		//ActorDeclaration:
-		//    'actor' name=ID
+		//    'actor' actorName=ID
 		//    ('inherits' baseActorName=ID
 		//     ('(' fieldName=ID '==' (enumReference = EnumValueReference | BOOL) ')')?)? (':'
 		//     BEGIN
@@ -1278,7 +1278,7 @@ public class OpenScenarioGrammarAccess extends AbstractElementFinder.AbstractGra
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'actor' name=ID
+		//'actor' actorName=ID
 		//('inherits' baseActorName=ID
 		// ('(' fieldName=ID '==' (enumReference = EnumValueReference | BOOL) ')')?)? (':'
 		// BEGIN
@@ -1289,11 +1289,11 @@ public class OpenScenarioGrammarAccess extends AbstractElementFinder.AbstractGra
 		//'actor'
 		public Keyword getActorKeyword_0() { return cActorKeyword_0; }
 		
-		//name=ID
-		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		//actorName=ID
+		public Assignment getActorNameAssignment_1() { return cActorNameAssignment_1; }
 		
 		//ID
-		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		public RuleCall getActorNameIDTerminalRuleCall_1_0() { return cActorNameIDTerminalRuleCall_1_0; }
 		
 		//('inherits' baseActorName=ID
 		// ('(' fieldName=ID '==' (enumReference = EnumValueReference | BOOL) ')')?)?
@@ -1363,8 +1363,8 @@ public class OpenScenarioGrammarAccess extends AbstractElementFinder.AbstractGra
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.bmwgroup.openscenario.asam.OpenScenario.StructDeclaration");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cStructKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Assignment cStructNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cStructNameIDTerminalRuleCall_1_0 = (RuleCall)cStructNameAssignment_1.eContents().get(0);
 		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
 		private final Keyword cInheritsKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
 		private final Assignment cBaseStructNameAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
@@ -1387,7 +1387,7 @@ public class OpenScenarioGrammarAccess extends AbstractElementFinder.AbstractGra
 		
 		////StructDeclaration
 		//StructDeclaration:
-		//    'struct' name=ID
+		//    'struct' structName=ID
 		//    ('inherits' baseStructName=ID
 		//     ('(' fieldName=ID '==' (enumReference = EnumValueReference | BOOL) ')')?)? ':'
 		//     BEGIN
@@ -1396,7 +1396,7 @@ public class OpenScenarioGrammarAccess extends AbstractElementFinder.AbstractGra
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'struct' name=ID
+		//'struct' structName=ID
 		//('inherits' baseStructName=ID
 		// ('(' fieldName=ID '==' (enumReference = EnumValueReference | BOOL) ')')?)? ':'
 		// BEGIN
@@ -1407,11 +1407,11 @@ public class OpenScenarioGrammarAccess extends AbstractElementFinder.AbstractGra
 		//'struct'
 		public Keyword getStructKeyword_0() { return cStructKeyword_0; }
 		
-		//name=ID
-		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		//structName=ID
+		public Assignment getStructNameAssignment_1() { return cStructNameAssignment_1; }
 		
 		//ID
-		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		public RuleCall getStructNameIDTerminalRuleCall_1_0() { return cStructNameIDTerminalRuleCall_1_0; }
 		
 		//('inherits' baseStructName=ID
 		// ('(' fieldName=ID '==' (enumReference = EnumValueReference | BOOL) ')')?)?
@@ -1475,8 +1475,8 @@ public class OpenScenarioGrammarAccess extends AbstractElementFinder.AbstractGra
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.bmwgroup.openscenario.asam.OpenScenario.ScenarioDeclaration");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cScenarioKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Assignment cScenarioNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cScenarioNameIDTerminalRuleCall_1_0 = (RuleCall)cScenarioNameAssignment_1.eContents().get(0);
 		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
 		private final Keyword cInheritsKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
 		private final Assignment cBaseScenarioNameAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
@@ -1502,7 +1502,7 @@ public class OpenScenarioGrammarAccess extends AbstractElementFinder.AbstractGra
 		
 		////Scenario Declaration
 		//ScenarioDeclaration:
-		//    'scenario' name=ID
+		//    'scenario' scenarioName=ID
 		//    ('inherits' baseScenarioName=ID
 		//     ('(' fieldName=ID '==' (enumReference = EnumValueReference | BOOL) ')')?)? ':'
 		//     BEGIN
@@ -1511,7 +1511,7 @@ public class OpenScenarioGrammarAccess extends AbstractElementFinder.AbstractGra
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'scenario' name=ID
+		//'scenario' scenarioName=ID
 		//('inherits' baseScenarioName=ID
 		// ('(' fieldName=ID '==' (enumReference = EnumValueReference | BOOL) ')')?)? ':'
 		// BEGIN
@@ -1522,11 +1522,11 @@ public class OpenScenarioGrammarAccess extends AbstractElementFinder.AbstractGra
 		//'scenario'
 		public Keyword getScenarioKeyword_0() { return cScenarioKeyword_0; }
 		
-		//name=ID
-		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		//scenarioName=ID
+		public Assignment getScenarioNameAssignment_1() { return cScenarioNameAssignment_1; }
 		
 		//ID
-		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		public RuleCall getScenarioNameIDTerminalRuleCall_1_0() { return cScenarioNameIDTerminalRuleCall_1_0; }
 		
 		//('inherits' baseScenarioName=ID
 		// ('(' fieldName=ID '==' (enumReference = EnumValueReference | BOOL) ')')?)?
@@ -3001,15 +3001,15 @@ public class OpenScenarioGrammarAccess extends AbstractElementFinder.AbstractGra
 		private final Keyword cRemove_defaultKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Keyword cLeftParenthesisKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cParameterReferenceAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cParameterReferenceParameterReferenceParserRuleCall_2_0 = (RuleCall)cParameterReferenceAssignment_2.eContents().get(0);
+		private final RuleCall cParameterReferencePostfixExpParserRuleCall_2_0 = (RuleCall)cParameterReferenceAssignment_2.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
 		//RemoveDefaultDeclaration:
-		//    'remove_default' '(' parameterReference=ParameterReference ')'
+		//    'remove_default' '(' parameterReference=PostfixExp ')'
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'remove_default' '(' parameterReference=ParameterReference ')'
+		//'remove_default' '(' parameterReference=PostfixExp ')'
 		public Group getGroup() { return cGroup; }
 		
 		//'remove_default'
@@ -3018,11 +3018,11 @@ public class OpenScenarioGrammarAccess extends AbstractElementFinder.AbstractGra
 		//'('
 		public Keyword getLeftParenthesisKeyword_1() { return cLeftParenthesisKeyword_1; }
 		
-		//parameterReference=ParameterReference
+		//parameterReference=PostfixExp
 		public Assignment getParameterReferenceAssignment_2() { return cParameterReferenceAssignment_2; }
 		
-		//ParameterReference
-		public RuleCall getParameterReferenceParameterReferenceParserRuleCall_2_0() { return cParameterReferenceParameterReferenceParserRuleCall_2_0; }
+		//PostfixExp
+		public RuleCall getParameterReferencePostfixExpParserRuleCall_2_0() { return cParameterReferencePostfixExpParserRuleCall_2_0; }
 		
 		//')'
 		public Keyword getRightParenthesisKeyword_3() { return cRightParenthesisKeyword_3; }
@@ -3410,57 +3410,29 @@ public class OpenScenarioGrammarAccess extends AbstractElementFinder.AbstractGra
 		//')'
 		public Keyword getRightParenthesisKeyword_4() { return cRightParenthesisKeyword_4; }
 	}
-	public class ElementAccessTailElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.bmwgroup.openscenario.asam.OpenScenario.ElementAccessTail");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cLeftSquareBracketKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cExpressionAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cExpressionExpressionParserRuleCall_1_0 = (RuleCall)cExpressionAssignment_1.eContents().get(0);
-		private final Keyword cRightSquareBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		
-		//ElementAccessTail:
-		//    '[' expression+=Expression ']' //Couldn't integrate without generating fatal errors
-		//;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//'[' expression+=Expression ']'
-		public Group getGroup() { return cGroup; }
-		
-		//'['
-		public Keyword getLeftSquareBracketKeyword_0() { return cLeftSquareBracketKeyword_0; }
-		
-		//expression+=Expression
-		public Assignment getExpressionAssignment_1() { return cExpressionAssignment_1; }
-		
-		//Expression
-		public RuleCall getExpressionExpressionParserRuleCall_1_0() { return cExpressionExpressionParserRuleCall_1_0; }
-		
-		//']'
-		public Keyword getRightSquareBracketKeyword_2() { return cRightSquareBracketKeyword_2; }
-	}
 	public class FieldAccessTailElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.bmwgroup.openscenario.asam.OpenScenario.FieldAccessTail");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cFullStopKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cFieldNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cFieldNameIDTerminalRuleCall_1_0 = (RuleCall)cFieldNameAssignment_1.eContents().get(0);
+		private final Assignment cFieldAccessAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cFieldAccessIDTerminalRuleCall_1_0 = (RuleCall)cFieldAccessAssignment_1.eContents().get(0);
 		
 		//FieldAccessTail:
-		//    '.' fieldName+=ID
+		//    '.' fieldAccess=ID
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'.' fieldName+=ID
+		//'.' fieldAccess=ID
 		public Group getGroup() { return cGroup; }
 		
 		//'.'
 		public Keyword getFullStopKeyword_0() { return cFullStopKeyword_0; }
 		
-		//fieldName+=ID
-		public Assignment getFieldNameAssignment_1() { return cFieldNameAssignment_1; }
+		//fieldAccess=ID
+		public Assignment getFieldAccessAssignment_1() { return cFieldAccessAssignment_1; }
 		
 		//ID
-		public RuleCall getFieldNameIDTerminalRuleCall_1_0() { return cFieldNameIDTerminalRuleCall_1_0; }
+		public RuleCall getFieldAccessIDTerminalRuleCall_1_0() { return cFieldAccessIDTerminalRuleCall_1_0; }
 	}
 	public class MethodInvocationElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.bmwgroup.openscenario.asam.OpenScenario.MethodInvocation");
@@ -3493,34 +3465,6 @@ public class OpenScenarioGrammarAccess extends AbstractElementFinder.AbstractGra
 		
 		//')'
 		public Keyword getRightParenthesisKeyword_3() { return cRightParenthesisKeyword_3; }
-	}
-	public class ParameterReferenceElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.bmwgroup.openscenario.asam.OpenScenario.ParameterReference");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final RuleCall cPostfixExpParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
-		private final Keyword cFullStopKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cFieldNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cFieldNameIDTerminalRuleCall_2_0 = (RuleCall)cFieldNameAssignment_2.eContents().get(0);
-		
-		//ParameterReference:
-		//    (PostfixExp '.' fieldName+=ID) //Generate Warnings: Repetition of the format in some cases
-		//;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//(PostfixExp '.' fieldName+=ID)
-		public Group getGroup() { return cGroup; }
-		
-		//PostfixExp
-		public RuleCall getPostfixExpParserRuleCall_0() { return cPostfixExpParserRuleCall_0; }
-		
-		//'.'
-		public Keyword getFullStopKeyword_1() { return cFullStopKeyword_1; }
-		
-		//fieldName+=ID
-		public Assignment getFieldNameAssignment_2() { return cFieldNameAssignment_2; }
-		
-		//ID
-		public RuleCall getFieldNameIDTerminalRuleCall_2_0() { return cFieldNameIDTerminalRuleCall_2_0; }
 	}
 	public class PrimaryExpElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.bmwgroup.openscenario.asam.OpenScenario.PrimaryExp");
@@ -4119,10 +4063,8 @@ public class OpenScenarioGrammarAccess extends AbstractElementFinder.AbstractGra
 	private final PostfixExpTailElements pPostfixExpTail;
 	private final CastExpTailElements pCastExpTail;
 	private final TypeTestTailElements pTypeTestTail;
-	private final ElementAccessTailElements pElementAccessTail;
 	private final FieldAccessTailElements pFieldAccessTail;
 	private final MethodInvocationElements pMethodInvocation;
-	private final ParameterReferenceElements pParameterReference;
 	private final PrimaryExpElements pPrimaryExp;
 	private final ValueExpElements pValueExp;
 	private final PhysicalTypeElements pPhysicalType;
@@ -4230,10 +4172,8 @@ public class OpenScenarioGrammarAccess extends AbstractElementFinder.AbstractGra
 		this.pPostfixExpTail = new PostfixExpTailElements();
 		this.pCastExpTail = new CastExpTailElements();
 		this.pTypeTestTail = new TypeTestTailElements();
-		this.pElementAccessTail = new ElementAccessTailElements();
 		this.pFieldAccessTail = new FieldAccessTailElements();
 		this.pMethodInvocation = new MethodInvocationElements();
-		this.pParameterReference = new ParameterReferenceElements();
 		this.pPrimaryExp = new PrimaryExpElements();
 		this.pValueExp = new ValueExpElements();
 		this.pPhysicalType = new PhysicalTypeElements();
@@ -4612,7 +4552,7 @@ public class OpenScenarioGrammarAccess extends AbstractElementFinder.AbstractGra
 	
 	////ActionDeclaration
 	//ActionDeclaration:
-	//    'action' name=ID
+	//    'action' actionName=ID
 	//    ('inherits' baseActionName=ID
 	//     ('(' fieldName=ID '==' (enumReference = EnumValueReference | BOOL) ')')?)? ':'
 	//     BEGIN
@@ -4629,7 +4569,7 @@ public class OpenScenarioGrammarAccess extends AbstractElementFinder.AbstractGra
 	
 	////ActorDeclaration
 	//ActorDeclaration:
-	//    'actor' name=ID
+	//    'actor' actorName=ID
 	//    ('inherits' baseActorName=ID
 	//     ('(' fieldName=ID '==' (enumReference = EnumValueReference | BOOL) ')')?)? (':'
 	//     BEGIN
@@ -4646,7 +4586,7 @@ public class OpenScenarioGrammarAccess extends AbstractElementFinder.AbstractGra
 	
 	////StructDeclaration
 	//StructDeclaration:
-	//    'struct' name=ID
+	//    'struct' structName=ID
 	//    ('inherits' baseStructName=ID
 	//     ('(' fieldName=ID '==' (enumReference = EnumValueReference | BOOL) ')')?)? ':'
 	//     BEGIN
@@ -4663,7 +4603,7 @@ public class OpenScenarioGrammarAccess extends AbstractElementFinder.AbstractGra
 	
 	////Scenario Declaration
 	//ScenarioDeclaration:
-	//    'scenario' name=ID
+	//    'scenario' scenarioName=ID
 	//    ('inherits' baseScenarioName=ID
 	//     ('(' fieldName=ID '==' (enumReference = EnumValueReference | BOOL) ')')?)? ':'
 	//     BEGIN
@@ -5074,7 +5014,7 @@ public class OpenScenarioGrammarAccess extends AbstractElementFinder.AbstractGra
 	}
 	
 	//RemoveDefaultDeclaration:
-	//    'remove_default' '(' parameterReference=ParameterReference ')'
+	//    'remove_default' '(' parameterReference=PostfixExp ')'
 	//;
 	public RemoveDefaultDeclarationElements getRemoveDefaultDeclarationAccess() {
 		return pRemoveDefaultDeclaration;
@@ -5187,19 +5127,8 @@ public class OpenScenarioGrammarAccess extends AbstractElementFinder.AbstractGra
 		return getTypeTestTailAccess().getRule();
 	}
 	
-	//ElementAccessTail:
-	//    '[' expression+=Expression ']' //Couldn't integrate without generating fatal errors
-	//;
-	public ElementAccessTailElements getElementAccessTailAccess() {
-		return pElementAccessTail;
-	}
-	
-	public ParserRule getElementAccessTailRule() {
-		return getElementAccessTailAccess().getRule();
-	}
-	
 	//FieldAccessTail:
-	//    '.' fieldName+=ID
+	//    '.' fieldAccess=ID
 	//;
 	public FieldAccessTailElements getFieldAccessTailAccess() {
 		return pFieldAccessTail;
@@ -5218,17 +5147,6 @@ public class OpenScenarioGrammarAccess extends AbstractElementFinder.AbstractGra
 	
 	public ParserRule getMethodInvocationRule() {
 		return getMethodInvocationAccess().getRule();
-	}
-	
-	//ParameterReference:
-	//    (PostfixExp '.' fieldName+=ID) //Generate Warnings: Repetition of the format in some cases
-	//;
-	public ParameterReferenceElements getParameterReferenceAccess() {
-		return pParameterReference;
-	}
-	
-	public ParserRule getParameterReferenceRule() {
-		return getParameterReferenceAccess().getRule();
 	}
 	
 	////Assistence

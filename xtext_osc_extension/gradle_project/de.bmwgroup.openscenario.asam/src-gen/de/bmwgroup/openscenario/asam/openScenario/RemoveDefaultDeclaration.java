@@ -27,12 +27,12 @@ public interface RemoveDefaultDeclaration extends ConstraintDeclaration
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Parameter Reference</em>' containment reference.
-   * @see #setParameterReference(ParameterReference)
+   * @see #setParameterReference(PostfixExp)
    * @see de.bmwgroup.openscenario.asam.openScenario.OpenScenarioPackage#getRemoveDefaultDeclaration_ParameterReference()
    * @model containment="true"
    * @generated
    */
-  ParameterReference getParameterReference();
+  PostfixExp getParameterReference();
 
   /**
    * Sets the value of the '{@link de.bmwgroup.openscenario.asam.openScenario.RemoveDefaultDeclaration#getParameterReference <em>Parameter Reference</em>}' containment reference.
@@ -42,6 +42,6 @@ public interface RemoveDefaultDeclaration extends ConstraintDeclaration
    * @see #getParameterReference()
    * @generated
    */
-  void setParameterReference(ParameterReference value);
+  void setParameterReference(PostfixExp value);
 
 } // RemoveDefaultDeclaration

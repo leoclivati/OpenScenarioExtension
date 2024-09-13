@@ -31,7 +31,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link de.bmwgroup.openscenario.asam.openScenario.impl.StructDeclarationImpl#getName <em>Name</em>}</li>
+ *   <li>{@link de.bmwgroup.openscenario.asam.openScenario.impl.StructDeclarationImpl#getStructName <em>Struct Name</em>}</li>
  *   <li>{@link de.bmwgroup.openscenario.asam.openScenario.impl.StructDeclarationImpl#getBaseStructName <em>Base Struct Name</em>}</li>
  *   <li>{@link de.bmwgroup.openscenario.asam.openScenario.impl.StructDeclarationImpl#getFieldName <em>Field Name</em>}</li>
  *   <li>{@link de.bmwgroup.openscenario.asam.openScenario.impl.StructDeclarationImpl#getEnumReference <em>Enum Reference</em>}</li>
@@ -43,24 +43,24 @@ import org.eclipse.emf.ecore.util.InternalEList;
 public class StructDeclarationImpl extends OscDeclarationImpl implements StructDeclaration
 {
   /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * The default value of the '{@link #getStructName() <em>Struct Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
+   * @see #getStructName()
    * @generated
    * @ordered
    */
-  protected static final String NAME_EDEFAULT = null;
+  protected static final String STRUCT_NAME_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+   * The cached value of the '{@link #getStructName() <em>Struct Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
+   * @see #getStructName()
    * @generated
    * @ordered
    */
-  protected String name = NAME_EDEFAULT;
+  protected String structName = STRUCT_NAME_EDEFAULT;
 
   /**
    * The default value of the '{@link #getBaseStructName() <em>Base Struct Name</em>}' attribute.
@@ -149,9 +149,9 @@ public class StructDeclarationImpl extends OscDeclarationImpl implements StructD
    * @generated
    */
   @Override
-  public String getName()
+  public String getStructName()
   {
-    return name;
+    return structName;
   }
 
   /**
@@ -160,12 +160,12 @@ public class StructDeclarationImpl extends OscDeclarationImpl implements StructD
    * @generated
    */
   @Override
-  public void setName(String newName)
+  public void setStructName(String newStructName)
   {
-    String oldName = name;
-    name = newName;
+    String oldStructName = structName;
+    structName = newStructName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, OpenScenarioPackage.STRUCT_DECLARATION__NAME, oldName, name));
+      eNotify(new ENotificationImpl(this, Notification.SET, OpenScenarioPackage.STRUCT_DECLARATION__STRUCT_NAME, oldStructName, structName));
   }
 
   /**
@@ -311,8 +311,8 @@ public class StructDeclarationImpl extends OscDeclarationImpl implements StructD
   {
     switch (featureID)
     {
-      case OpenScenarioPackage.STRUCT_DECLARATION__NAME:
-        return getName();
+      case OpenScenarioPackage.STRUCT_DECLARATION__STRUCT_NAME:
+        return getStructName();
       case OpenScenarioPackage.STRUCT_DECLARATION__BASE_STRUCT_NAME:
         return getBaseStructName();
       case OpenScenarioPackage.STRUCT_DECLARATION__FIELD_NAME:
@@ -336,8 +336,8 @@ public class StructDeclarationImpl extends OscDeclarationImpl implements StructD
   {
     switch (featureID)
     {
-      case OpenScenarioPackage.STRUCT_DECLARATION__NAME:
-        setName((String)newValue);
+      case OpenScenarioPackage.STRUCT_DECLARATION__STRUCT_NAME:
+        setStructName((String)newValue);
         return;
       case OpenScenarioPackage.STRUCT_DECLARATION__BASE_STRUCT_NAME:
         setBaseStructName((String)newValue);
@@ -366,8 +366,8 @@ public class StructDeclarationImpl extends OscDeclarationImpl implements StructD
   {
     switch (featureID)
     {
-      case OpenScenarioPackage.STRUCT_DECLARATION__NAME:
-        setName(NAME_EDEFAULT);
+      case OpenScenarioPackage.STRUCT_DECLARATION__STRUCT_NAME:
+        setStructName(STRUCT_NAME_EDEFAULT);
         return;
       case OpenScenarioPackage.STRUCT_DECLARATION__BASE_STRUCT_NAME:
         setBaseStructName(BASE_STRUCT_NAME_EDEFAULT);
@@ -395,8 +395,8 @@ public class StructDeclarationImpl extends OscDeclarationImpl implements StructD
   {
     switch (featureID)
     {
-      case OpenScenarioPackage.STRUCT_DECLARATION__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case OpenScenarioPackage.STRUCT_DECLARATION__STRUCT_NAME:
+        return STRUCT_NAME_EDEFAULT == null ? structName != null : !STRUCT_NAME_EDEFAULT.equals(structName);
       case OpenScenarioPackage.STRUCT_DECLARATION__BASE_STRUCT_NAME:
         return BASE_STRUCT_NAME_EDEFAULT == null ? baseStructName != null : !BASE_STRUCT_NAME_EDEFAULT.equals(baseStructName);
       case OpenScenarioPackage.STRUCT_DECLARATION__FIELD_NAME:
@@ -420,8 +420,8 @@ public class StructDeclarationImpl extends OscDeclarationImpl implements StructD
     if (eIsProxy()) return super.toString();
 
     StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (name: ");
-    result.append(name);
+    result.append(" (structName: ");
+    result.append(structName);
     result.append(", baseStructName: ");
     result.append(baseStructName);
     result.append(", fieldName: ");

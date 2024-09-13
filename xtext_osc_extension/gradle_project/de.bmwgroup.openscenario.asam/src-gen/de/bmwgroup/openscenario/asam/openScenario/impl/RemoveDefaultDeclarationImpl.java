@@ -4,7 +4,7 @@
 package de.bmwgroup.openscenario.asam.openScenario.impl;
 
 import de.bmwgroup.openscenario.asam.openScenario.OpenScenarioPackage;
-import de.bmwgroup.openscenario.asam.openScenario.ParameterReference;
+import de.bmwgroup.openscenario.asam.openScenario.PostfixExp;
 import de.bmwgroup.openscenario.asam.openScenario.RemoveDefaultDeclaration;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -38,7 +38,7 @@ public class RemoveDefaultDeclarationImpl extends ConstraintDeclarationImpl impl
    * @generated
    * @ordered
    */
-  protected ParameterReference parameterReference;
+  protected PostfixExp parameterReference;
 
   /**
    * <!-- begin-user-doc -->
@@ -67,7 +67,7 @@ public class RemoveDefaultDeclarationImpl extends ConstraintDeclarationImpl impl
    * @generated
    */
   @Override
-  public ParameterReference getParameterReference()
+  public PostfixExp getParameterReference()
   {
     return parameterReference;
   }
@@ -77,9 +77,9 @@ public class RemoveDefaultDeclarationImpl extends ConstraintDeclarationImpl impl
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetParameterReference(ParameterReference newParameterReference, NotificationChain msgs)
+  public NotificationChain basicSetParameterReference(PostfixExp newParameterReference, NotificationChain msgs)
   {
-    ParameterReference oldParameterReference = parameterReference;
+    PostfixExp oldParameterReference = parameterReference;
     parameterReference = newParameterReference;
     if (eNotificationRequired())
     {
@@ -95,7 +95,7 @@ public class RemoveDefaultDeclarationImpl extends ConstraintDeclarationImpl impl
    * @generated
    */
   @Override
-  public void setParameterReference(ParameterReference newParameterReference)
+  public void setParameterReference(PostfixExp newParameterReference)
   {
     if (newParameterReference != parameterReference)
     {
@@ -154,7 +154,7 @@ public class RemoveDefaultDeclarationImpl extends ConstraintDeclarationImpl impl
     switch (featureID)
     {
       case OpenScenarioPackage.REMOVE_DEFAULT_DECLARATION__PARAMETER_REFERENCE:
-        setParameterReference((ParameterReference)newValue);
+        setParameterReference((PostfixExp)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -171,7 +171,7 @@ public class RemoveDefaultDeclarationImpl extends ConstraintDeclarationImpl impl
     switch (featureID)
     {
       case OpenScenarioPackage.REMOVE_DEFAULT_DECLARATION__PARAMETER_REFERENCE:
-        setParameterReference((ParameterReference)null);
+        setParameterReference((PostfixExp)null);
         return;
     }
     super.eUnset(featureID);

@@ -14,7 +14,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link de.bmwgroup.openscenario.asam.openScenario.ActorDeclaration#getName <em>Name</em>}</li>
+ *   <li>{@link de.bmwgroup.openscenario.asam.openScenario.ActorDeclaration#getActorName <em>Actor Name</em>}</li>
  *   <li>{@link de.bmwgroup.openscenario.asam.openScenario.ActorDeclaration#getBaseActorName <em>Base Actor Name</em>}</li>
  *   <li>{@link de.bmwgroup.openscenario.asam.openScenario.ActorDeclaration#getFieldName <em>Field Name</em>}</li>
  *   <li>{@link de.bmwgroup.openscenario.asam.openScenario.ActorDeclaration#getEnumReference <em>Enum Reference</em>}</li>
@@ -28,26 +28,26 @@ import org.eclipse.emf.common.util.EList;
 public interface ActorDeclaration extends OscDeclaration
 {
   /**
-   * Returns the value of the '<em><b>Name</b></em>' attribute.
+   * Returns the value of the '<em><b>Actor Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Name</em>' attribute.
-   * @see #setName(String)
-   * @see de.bmwgroup.openscenario.asam.openScenario.OpenScenarioPackage#getActorDeclaration_Name()
+   * @return the value of the '<em>Actor Name</em>' attribute.
+   * @see #setActorName(String)
+   * @see de.bmwgroup.openscenario.asam.openScenario.OpenScenarioPackage#getActorDeclaration_ActorName()
    * @model
    * @generated
    */
-  String getName();
+  String getActorName();
 
   /**
-   * Sets the value of the '{@link de.bmwgroup.openscenario.asam.openScenario.ActorDeclaration#getName <em>Name</em>}' attribute.
+   * Sets the value of the '{@link de.bmwgroup.openscenario.asam.openScenario.ActorDeclaration#getActorName <em>Actor Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Name</em>' attribute.
-   * @see #getName()
+   * @param value the new value of the '<em>Actor Name</em>' attribute.
+   * @see #getActorName()
    * @generated
    */
-  void setName(String value);
+  void setActorName(String value);
 
   /**
    * Returns the value of the '<em><b>Base Actor Name</b></em>' attribute.
